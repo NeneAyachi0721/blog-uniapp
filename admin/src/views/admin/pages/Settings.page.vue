@@ -1,0 +1,56 @@
+<!-- src/views/admin/pages/Settings.page.vue -->
+<script setup lang="ts">
+import { ref, markRaw, computed } from "vue";
+import AppearanceSection from "../components/settings/sections/appearance/AppearanceSection.vue";
+import SiteSection from "../components/settings/sections/site/SiteSection.vue";
+import AdminSection from "../components/settings/sections/admin/AdminSection.vue";
+import SMTPSection from "../components/settings/sections/smtp/SMTPSection.vue";
+import SettingsNav from "../components/settings/layout/SettingsNav.vue";
+import { useLang } from "@/composables/lang.hook";
+
+const { t } = useLang();
+
+const menuItems = computed(() => [
+  {
+    id: "appearance",
+    name: t("views.admin.Settings.nav.appearance"),
+    component: markRaw(AppearanceSection),
+  },
+  {
+    id: "site",
+    name: t("views.admin.Settings.nav.site"),
+    component: markRaw(SiteSection),
+  },
+  {
+    id: "admin",
+    name: t("views.admin.Settings.nav.admin"),
+    component: markRaw(AdminSection),
+  },
+  {
+    id: "smtp",
+    name: t("views.admin.Settings.nav.smtp"),
+    component: markRaw(SMTPSection),
+  },
+]);
+
+const activeTab = ref("appearance");
+</script>
+
+<template>
+  <!-- Teleport 到 AdminHeader 的中间区域 -->
+  <Teleport defer to="#admin-header-center">
+    <SettingsNav
+      :menu-items="menuItems"
+      v-model:active-tab="activeTab"
+      class="onload-animation"
+    />
+  </Teleport>
+
+  <!-- 主内容区 -->
+  <component
+    :is="menuItems.find((i) => i.id === activeTab)?.component"
+    class="flex-1"
+  />
+</template>
+
+<style scoped></style>

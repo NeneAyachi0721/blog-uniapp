@@ -1,0 +1,98 @@
+# 依赖目录，必须排除
+node_modules/
+**/node_modules/
+
+# 构建产物，必须排除
+dist/
+**/dist/
+build/
+**/build/
+.output/
+**/.output/
+.next/
+**/.next/
+.nuxt/
+**/.nuxt/
+.unpackage/
+**/.unpackage/
+
+# Vite / TypeScript / 工具缓存
+.vite/
+**/.vite/
+.vite-temp/
+**/.vite-temp/
+.tmp/
+**/.tmp/
+.cache/
+**/.cache/
+.turbo/
+**/.turbo/
+*.tsbuildinfo
+
+# Git / IDE
+.git/
+**/.git/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 环境变量和密钥，必须排除
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# 日志，必须排除
+*.log
+**/*.log
+dev-server.err.log
+dev-server.out.log
+**/dev-server.err.log
+**/dev-server.out.log
+
+# 后端运行时数据，必须排除
+backend/data/
+backend/data/.env
+backend/data/logs/
+backend/data/uploads/
+backend/data/sqlite.db
+backend/data/sqlite.db-shm
+backend/data/sqlite.db-wal
+
+# 数据库本体文件，排除；迁移文件不要排除
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Repomix 自己生成的文件，避免重复打包
+repomix-output.*
+codebase.md
+codebase.xml
+
+# 压缩包和二进制包
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# 图片 / 字体 / 视频等大资源，通常不需要给我看源码时上传
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.mp4
+*.mov
+*.avi

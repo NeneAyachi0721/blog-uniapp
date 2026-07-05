@@ -1,0 +1,114 @@
+<!-- src/views/setup/Setup.page.vue -->
+<script setup lang="ts">
+import Brand from "@/components/common/item/Brand.vue";
+import Footer from "@/components/common/layout/Footer.vue";
+import BaseProgress from "@/components/base/progress/BaseProgress.vue";
+import BaseCard from "@/components/base/card/BaseCard.vue";
+import PersonalizationPreview from "./components/PersonalizationPreview.vue";
+import SMTPForm from "@/components/common/smtp/SMTPForm.vue";
+
+import { useAutoAnimate } from "@formkit/auto-animate/vue";
+import { useSetupStore } from "@/stores/setup.store";
+import { useLang } from "@/composables/lang.hook";
+import { computed } from "vue";
+import { useMediaQuery } from "@vueuse/core";
+
+const { t } = useLang();
+const stepStore = useSetupStore();
+const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+// 引入步骤组件
+import Step1Appearance from "@/views/setup/steps/Step1Appearance.vue";
+import Step2Info from "@/views/setup/steps/Step2Info.vue";
+import Step3Admin from "@/views/setup/steps/Step3Admin.vue";
+import Step4Personalization from "@/views/setup/steps/Step4Personalization.vue";
+import Step5SMTP from "@/views/setup/steps/Step5SMTP.vue";
+
+const stepComponents = [
+  Step1Appearance,
+  Step2Info,
+  Step3Admin,
+  Step4Personalization,
+  Step5SMTP,
+];
+
+const CurrentStepComponent = computed(() => {
+  return stepComponents[stepStore.currentStep - 1];
+});
+
+// 使用 auto-animate 自动处理左侧展示区的组件切换动画
+const [leftSideRef] = useAutoAnimate();
+
+// 使用 auto-animate 自动处理右侧表单区的步骤切换动画
+const [rightSideRef] = useAutoAnimate();
+</script>
+
+<template>
+  <div
+    class="min-h-screen flex flex-col bg-bg overflow-x-hidden overflow-y-clip"
+  >
+    <!-- main 撑满除 Footer 外的所有高度 -->
+    <main class="flex-1 flex flex-col p-8 gap-10">
+      <!-- 进度条区域：添加简单淡入动画 -->
+      <div class="w-full max-w-5xl mx-auto onload-animation">
+        <BaseProgress
+          :currentStep="stepStore.currentStep"
+          :totalSteps="stepStore.totalSteps"
+          :title="stepStore.currentTitle"
+        />
+      </div>
+
+      <!-- 初始化/表单核心区域：使用 flex-1 占据所有剩余高度 -->
+      <div class="flex-1 flex items-center justify-center">
+        <div class="w-full max-w-5xl flex items-center justify-center gap-12">
+          <!-- 左侧：展示区 - 添加简单淡入动画和延迟 -->
+          <div
+            ref="leftSideRef"
+            class="hidden lg:block w-full onload-animation anim-delay-50"
+          >
+            <BaseCard
+              v-if="stepStore.currentStep === 4 && stepStore.isPersonalized"
+              padding="sm"
+            >
+              <PersonalizationPreview />
+            </BaseCard>
+            <BaseCard
+              v-else-if="
+                stepStore.currentStep === 5 &&
+                stepStore.isSMTPEnabled &&
+                isDesktop
+              "
+              padding="sm"
+            >
+              <SMTPForm
+                v-model="stepStore.smtpForm"
+                v-model:is-advanced-expanded="stepStore.isSMTPAdvancedExpanded"
+                @register-validator="stepStore.setSmtpFormValidator"
+              />
+            </BaseCard>
+            <Brand
+              v-else
+              :line1="t('components.common.item.Brand.line1')"
+              :line2="t('components.common.item.Brand.line2')"
+              :line3="t('components.common.item.Brand.line3')"
+            />
+          </div>
+
+          <!-- 右侧：表单流程区 - 添加简单淡入动画和延迟 -->
+          <div
+            ref="rightSideRef"
+            class="w-full max-w-2xl onload-animation anim-delay-100"
+          >
+            <component
+              :is="CurrentStepComponent"
+              :key="stepStore.currentStep"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 底部版权信息 - 添加简单淡入动画 -->
+    <Footer class="onload-animation anim-delay-50"></Footer>
+  </div>
+</template>

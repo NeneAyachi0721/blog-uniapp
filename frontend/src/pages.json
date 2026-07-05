@@ -1,0 +1,67 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#F3F8FF"
+      }
+    },
+    {
+      "path": "pages/archive/index",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#F3F8FF"
+      }
+    },
+    {
+      "path": "pages/friends/index",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#F3F8FF"
+      }
+    },
+    {
+      "path": "pages/post/detail",
+      "style": {
+        "navigationStyle": "custom",
+        "backgroundColor": "#F3F8FF"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#9BAFC2",
+    "selectedColor": "#5BA7F0",
+    "backgroundColor": "#FBFDFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/tab/home.png",
+        "selectedIconPath": "static/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/archive/index",
+        "text": "归档",
+        "iconPath": "static/tab/archive.png",
+        "selectedIconPath": "static/tab/archive-active.png"
+      },
+      {
+        "pagePath": "pages/friends/index",
+        "text": "友链",
+        "iconPath": "static/tab/friends.png",
+        "selectedIconPath": "static/tab/friends-active.png"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Mobile Journal",
+    "navigationBarBackgroundColor": "#F3F8FF",
+    "backgroundColor": "#F3F8FF"
+  }
+}

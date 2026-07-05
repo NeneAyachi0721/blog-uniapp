@@ -1,0 +1,946 @@
+{
+    "components": {
+        "common": {
+            "layout": {
+                "Header": {
+                    "nav": {
+                        "home": "Home",
+                        "archive": "Archive",
+                        "friends": "Friends"
+                    },
+                    "menu": {
+                        "title": "Navigation",
+                        "open": "Open menu",
+                        "close": "Close menu"
+                    }
+                }
+            },
+            "admin": {
+                "PostsNav": {
+                    "nav": {
+                        "list": "Posts",
+                        "editor": "Write"
+                    }
+                },
+                "AdminSidebar": {
+                    "user": {
+                        "logout": "Click to logout",
+                        "modal": {
+                            "title": "Logout",
+                            "question": "Are you sure you want to logout?",
+                            "warning": "You will need to login again to access the admin panel"
+                        }
+                    }
+                },
+                "AdminHeader": {
+                    "pages": {
+                        "dashboard": "Dashboard",
+                        "posts": "Posts",
+                        "post-edit": "Edit Post",
+                        "emails": "Emails",
+                        "friend-links": "Friend Links",
+                        "settings": "Settings",
+                        "default": "Admin"
+                    },
+                    "actions": {
+                        "goHome": "Go to Home"
+                    }
+                }
+            },
+            "input": {
+                "TipInput": {
+                    "required": "This field cannot be empty"
+                },
+                "SearchInput": {
+                    "placeholder": "Search..."
+                }
+            },
+            "button": {
+                "NotificationButton": {
+                    "empty": "No notifications",
+                    "markAllRead": "Mark All Read",
+                    "viewAll": "View All Messages"
+                }
+            },
+            "BrowserMockup": {
+                "preview": "Live Preview"
+            },
+            "item": {
+                "Brand": {
+                    "line1": "Welcome to",
+                    "line2": "blog",
+                    "line3": "Let's start configuring"
+                }
+            }
+        },
+        "base": {
+            "progress": {
+                "BaseProgress": {
+                    "step": "Step {current}/{total}"
+                }
+            },
+            "search": {
+                "HeaderSearch": {
+                    "placeholder": "Search posts...",
+                    "searching": "Searching...",
+                    "noResults": "No posts found",
+                    "untitled": "Untitled"
+                }
+            }
+        },
+        "theme": {
+            "ToggleColor": {
+                "paletteTitle": "Theme Color"
+            },
+            "ToggleTheme": {
+                "light": "Light",
+                "dark": "Dark",
+                "auto": "System"
+            }
+        }
+    },
+    "views": {
+        "main": {
+            "home": {
+                "PostCard": {
+                    "untitled": "New Post",
+                    "words": "words",
+                    "views": "reads",
+                    "empty": "No posts yet",
+                    "pinned": "Pinned"
+                }
+            },
+            "post": {
+                "back": "Back",
+                "notFound": "Post not found or has been removed",
+                "untitled": "Untitled",
+                "words": "words",
+                "views": "reads"
+            },
+            "archive": {
+                "empty": "No posts yet",
+                "postsCount": "posts",
+                "untitled": "Untitled"
+            },
+            "friends": {
+                "listTitle": "Friends",
+                "listEmpty": "No friend links yet. Be the first!",
+                "siteCount": "{count} sites",
+                "applyTitle": "Apply for a Friend Link",
+                "applyDesc": "Submit your site info and wait for review",
+                "form": {
+                    "name": "Site Name",
+                    "namePlaceholder": "My Blog",
+                    "url": "Site URL",
+                    "urlPlaceholder": "https://example.com",
+                    "avatarUrl": "Site Avatar URL",
+                    "avatarUrlPlaceholder": "https://example.com/avatar.png",
+                    "description": "Site Description",
+                    "descPlaceholder": "A short intro about your blog",
+                    "tags": "Tags",
+                    "tagsPlaceholder": "tech, life... press Enter or comma to add",
+                    "email": "Contact Email",
+                    "emailPlaceholder": "For review result notification",
+                    "emailHint": "If provided, you will be notified when your application is reviewed",
+                    "submit": "Submit"
+                }
+            },
+            "hero": {
+                "titleEditor": {
+                    "triggerText": "Edit Homepage Headline",
+                    "triggerAriaLabel": "Edit homepage headline and typing subtitles",
+                    "modalTitle": "Homepage Headline Editor",
+                    "mainTitle": "Main Title",
+                    "placeholder": "For example: Welcome to my cozy corner",
+                    "subtitles": {
+                        "title": "Subtitles",
+                        "add": "Add One",
+                        "placeholder": "Subtitle {index}"
+                    }
+                }
+            }
+        },
+        "admin": {
+            "Posts": {
+                "filter": {
+                    "all": "All",
+                    "draft": "Draft",
+                    "published": "Published",
+                    "archived": "Archived",
+                    "deleted": "Trash"
+                },
+                "table": {
+                    "col": {
+                        "post": "Post",
+                        "status": "Status",
+                        "tags": "Tags",
+                        "views": "Views",
+                        "time": "Time",
+                        "actions": "Actions"
+                    },
+                    "actions": {
+                        "edit": "Edit",
+                        "publish": "Publish",
+                        "toDraft": "Revert to Draft",
+                        "archive": "Archive",
+                        "trash": "Move to Trash",
+                        "restore": "Restore to Draft",
+                        "permanentDelete": "Delete Permanently"
+                    },
+                    "untitled": "New Post",
+                    "empty": "No posts yet",
+                    "noTags": "No tags",
+                    "bulk": {
+                        "changeStatus": "Change Status",
+                        "statusModal": {
+                            "title": "Bulk Change Status",
+                            "question": "Select the target status for the following posts:",
+                            "confirm": "Confirm Change to {status}"
+                        },
+                        "delete": "Bulk Delete",
+                        "trashModal": {
+                            "title": "Move to Trash",
+                            "question": "Are you sure you want to move the following posts to Trash?",
+                            "listHeader": "Posts to be moved",
+                            "warning": "You can find and restore them from the Trash section at any time.",
+                            "confirm": "Move All to Trash"
+                        },
+                        "deleteModal": {
+                            "title": "Permanent Bulk Delete",
+                            "question": "Are you sure you want to permanently delete the following posts?",
+                            "listHeader": "Posts to be permanently deleted",
+                            "warning": "This action cannot be undone. The posts will be permanently deleted and cannot be recovered.",
+                            "confirm": "Delete All Permanently"
+                        }
+                    },
+                    "timeLabel": {
+                        "published": "Published",
+                        "deleted": "Deleted",
+                        "updated": "Updated"
+                    },
+                    "confirm": {
+                        "trash": {
+                            "title": "Move to Trash",
+                            "question": "Are you sure you want to move \"{title}\" to Trash?",
+                            "warning": "You can find and restore it from the Trash section at any time.",
+                            "confirm": "Move to Trash"
+                        },
+                        "delete": {
+                            "title": "Delete Permanently",
+                            "question": "Are you sure you want to permanently delete \"{title}\"?",
+                            "warning": "This action cannot be undone. The post will be permanently deleted and cannot be recovered.",
+                            "confirm": "Delete Permanently"
+                        }
+                    }
+                }
+            },
+            "Settings": {
+                "nav": {
+                    "appearance": "Appearance",
+                    "site": "Site Info",
+                    "admin": "Admin Info",
+                    "smtp": "SMTP Settings"
+                },
+                "appearance": {
+                    "settings": {
+                        "languageHint": "As the preview operates in an isolated environment, a quick reload is required for language changes. Theme and Hue settings sync in real-time."
+                    },
+                    "viewport": {
+                        "title": "Preview Device",
+                        "desktop": "Desktop",
+                        "mobile": "Mobile"
+                    }
+                },
+                "site": {
+                    "siteInfo": {
+                        "title": "Site Information",
+                        "description": "Set your site name and icon, which will appear in the browser tab."
+                    },
+                    "hero": {
+                        "description": "Set the main title and subtitles displayed on the homepage, with support for automatic cycling."
+                    },
+                    "footer": {
+                        "title": "Footer Settings",
+                        "description": "Configure the content displayed in the site footer.",
+                        "links": {
+                            "title": "Footer Links",
+                            "add": "Add Link",
+                            "namePlaceholder": "Name (e.g., GitHub)",
+                            "urlPlaceholder": "URL (e.g., https://...)"
+                        }
+                    }
+                },
+                "admin": {
+                    "account": {
+                        "title": "Account Security",
+                        "description": "Manage your login credentials, including username, email, and password.",
+                        "passwordPlaceholder": "Leave blank to keep current"
+                    },
+                    "profile": {
+                        "title": "Profile",
+                        "description": "Set your personal bio and manage social platform links displayed on your homepage.",
+                        "bio": "Bio",
+                        "bioPlaceholder": "Introduce yourself in a few sentences..."
+                    },
+                    "social": {
+                        "title": "Social Links",
+                        "description": "Configure social platform links displayed in your sidebar.",
+                        "links": {
+                            "title": "Social Platforms",
+                            "add": "Add Link",
+                            "namePlaceholder": "Platform (e.g., GitHub)",
+                            "urlPlaceholder": "Link (e.g., https://...)",
+                            "nameRequired": "Please enter platform name before uploading icon",
+                            "iconLight": "Light Icon",
+                            "iconDark": "Dark Icon"
+                        }
+                    }
+                },
+                "smtp": {
+                    "section": {
+                        "title": "SMTP Service",
+                        "description": "Configure SMTP server to enable email notification functions."
+                    },
+                    "preview": {
+                        "testEmailTitle": "A test email from blog",
+                        "greeting": "Hello, {name}!",
+                        "testMessage": "This is an automatically generated test email to verify your SMTP configuration. If you receive this message, it means your email service is successfully connected and ready to go.",
+                        "connectionDetailsTitle": "Connection Details",
+                        "detailProtocol": "Protocol",
+                        "detailEncryption": "Encryption",
+                        "detailTime": "Timestamp",
+                        "detailSender": "Sender",
+                        "footerNote": "This email was automatically generated to test connection stability. You do not need to reply."
+                    },
+                    "send": {
+                        "title": "Send Email",
+                        "description": "Enter recipient addresses, preview the parsed list, and send a notification email.",
+                        "recipient": {
+                            "label": "Recipients",
+                            "hint": "Enter multiple addresses separated by commas (,), semicolons (;), or spaces. The list will sync automatically.",
+                            "placeholder": "user1{'@'}example.com, user2{'@'}example.com"
+                        },
+                        "list": {
+                            "title": "Recipient List",
+                            "add": "Add",
+                            "placeholder": "Enter email address"
+                        },
+                        "button": "Send Email",
+                        "noRecipient": "Please add at least one recipient"
+                    }
+                }
+            },
+            "Dashboard": {
+                "stats": {
+                    "totalVisits": "Total Visits",
+                    "publishedPosts": "Published Posts",
+                    "pendingFriendLinks": "Pending Links",
+                    "unreadEmails": "Unread Emails",
+                    "unitPosts": "posts",
+                    "unitUnread": "to read",
+                    "unitPending": "pending"
+                },
+                "quickNote": {
+                    "title": "Quick Note",
+                    "description": "Jot down fleeting ideas",
+                    "titleLabel": "Title",
+                    "titleHint": "Give this note a short name",
+                    "titlePlaceholder": "e.g. A new writing idea",
+                    "contentLabel": "Content",
+                    "contentPlaceholder": "Write your thoughts here...",
+                    "save": "Save Draft"
+                }
+            },
+            "PostEditor": {
+                "statusBar": {
+                    "unsaved": "Unsaved",
+                    "saved": "Saved",
+                    "saving": "Saving",
+                    "save": "Save",
+                    "stats": "Selected {selected} / Total {total}"
+                },
+                "settingsPanel": {
+                    "title": "Post Settings",
+                    "tags": {
+                        "label": "Tags",
+                        "tooltip": "Add tags to your post to help with categorization and content discovery",
+                        "placeholder": "Type and press Enter to add"
+                    },
+                    "slug": {
+                        "label": "Permalink",
+                        "tooltip": "Auto-generated from the title; you can edit it manually. Required before publishing.",
+                        "placeholder": "article-url-slug"
+                    },
+                    "status": {
+                        "label": "Status",
+                        "tooltip": "Control the visibility of your post. Drafts are only visible to you"
+                    },
+                    "excerpt": {
+                        "label": "Excerpt",
+                        "tooltip": "Manually write a summary; if left empty, the system will auto-generate one from the post content",
+                        "placeholder": "A brief description of this post…"
+                    },
+                    "coverImage": {
+                        "label": "Cover Image",
+                        "tooltip": "Set the post cover image, displayed on listing and detail pages",
+                        "hint": "Click to upload · 16:9 recommended"
+                    },
+                    "properties": {
+                        "label": "Properties",
+                        "tooltip": "Control how this post behaves on the public site",
+                        "pinned": {
+                            "label": "Pin Post",
+                            "tooltip": "Pinned posts appear at the top of the public post list"
+                        }
+                    }
+                },
+                "content": {
+                    "title": {
+                        "placeholder": "Post title"
+                    },
+                    "body": {
+                        "placeholder": "Start writing, or type / to choose a block..."
+                    },
+                    "bubbleMenu": {
+                        "bold": "Bold (Ctrl/⌘+B)\nmarkdown:**text** Space",
+                        "italic": "Italic (Ctrl/⌘+I)\nmarkdown:*text* Space",
+                        "strike": "Strikethrough (Ctrl/⌘+Shift+S)\nmarkdown:~~text~~ Space",
+                        "underline": "Underline (Ctrl/⌘+U)\nmarkdown:~text~ Space",
+                        "code": "Inline code (Ctrl/⌘+E)\nmarkdown:`code` Space",
+                        "alignLeft": "Align left",
+                        "alignCenter": "Align center",
+                        "alignRight": "Align right",
+                        "indent": "Increase indent",
+                        "outdent": "Decrease indent",
+                        "link": "Insert link (Ctrl/⌘+K)",
+                        "linkEdit": "Edit link",
+                        "linkRemove": "Remove link",
+                        "linkUrlPlaceholder": "https://...",
+                        "linkConfirm": "Insert"
+                    },
+                    "blockCommands": {
+                        "paragraph": {
+                            "label": "Paragraph",
+                            "tooltip": "Paragraph"
+                        },
+                        "heading1": {
+                            "label": "H1",
+                            "tooltip": "Heading 1\nmarkdown:# Space"
+                        },
+                        "heading2": {
+                            "label": "H2",
+                            "tooltip": "Heading 2\nmarkdown:## Space"
+                        },
+                        "heading3": {
+                            "label": "H3",
+                            "tooltip": "Heading 3\nmarkdown:### Space"
+                        },
+                        "bulletList": {
+                            "label": "Bullet list",
+                            "tooltip": "Bullet list\nmarkdown:- Space"
+                        },
+                        "orderedList": {
+                            "label": "Ordered list",
+                            "tooltip": "Ordered list\nmarkdown:1. Space"
+                        },
+                        "taskList": {
+                            "label": "Task list",
+                            "tooltip": "Task list\nmarkdown:- [ ] Space"
+                        },
+                        "codeBlock": {
+                            "label": "Code block",
+                            "tooltip": "Code block\nmarkdown:``` Enter"
+                        },
+                        "quote": {
+                            "label": "Blockquote",
+                            "tooltip": "Blockquote\nmarkdown:> Space"
+                        },
+                        "horizontalRule": {
+                            "label": "Divider",
+                            "tooltip": "Divider\nmarkdown:--- Enter"
+                        }
+                    },
+                    "codeBlock": {
+                        "languageEmpty": "No matching language"
+                    },
+                    "slashMenu": {
+                        "empty": "No matching commands",
+                        "groups": {
+                            "basic": "Basic",
+                            "common": "Common",
+                            "list": "List"
+                        }
+                    },
+                    "slashCommands": {
+                        "table": {
+                            "label": "Table"
+                        },
+                        "image": {
+                            "label": "Image"
+                        },
+                        "clearFormatting": {
+                            "label": "Clear formatting"
+                        }
+                    },
+                    "colorMenu": {
+                        "tooltip": "Text / background color",
+                        "textColor": "Text color",
+                        "bgColor": "Background color",
+                        "colors": {
+                            "default": "Default",
+                            "none": "None",
+                            "gray": "Gray",
+                            "brown": "Brown",
+                            "orange": "Orange",
+                            "yellow": "Yellow",
+                            "green": "Green",
+                            "blue": "Blue",
+                            "purple": "Purple",
+                            "pink": "Pink",
+                            "red": "Red",
+                            "custom": "Custom"
+                        }
+                    },
+                    "tablePicker": {
+                        "label": "Table",
+                        "hint": "Select table size",
+                        "dimensions": "{rows} × {cols}"
+                    },
+                    "imagePicker": {
+                        "label": "Image"
+                    },
+                    "orderedListMenu": {
+                        "continue": "Continue numbering",
+                        "startNew": "Start from 1",
+                        "setStart": "Start at",
+                        "tooltip": "Set numbering"
+                    },
+                    "tableMenu": {
+                        "mergeCells": "Merge cells",
+                        "splitCell": "Split cell",
+                        "setHeader": "Set as header",
+                        "deleteRow": "Delete row",
+                        "deleteColumn": "Delete column",
+                        "cellBackground": "Cell background",
+                        "cut": "Cut table",
+                        "copy": "Copy table",
+                        "deleteTable": "Delete table"
+                    },
+                    "tableControls": {
+                        "selectColumn": "Select column",
+                        "selectRow": "Select row",
+                        "insertColumn": "Insert column",
+                        "insertRow": "Insert row"
+                    },
+                    "handleMenu": {
+                        "groups": {
+                            "basic": "Basic",
+                            "common": "Common",
+                            "list": "List"
+                        }
+                    }
+                }
+            }
+        },
+        "login": {
+            "brand": {
+                "line1": "Hey there",
+                "line2": "Ready to create?",
+                "line3": "Let's pick up where you left off"
+            },
+            "title": "Welcome back",
+            "description": "Sign in to manage your blog",
+            "identifier": {
+                "label": "Username or Email",
+                "placeholder": "Enter your username or email"
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Enter your password"
+            },
+            "submit": "Sign In",
+            "backToHome": "Back to Home",
+            "forgotPassword": "Forgot password?"
+        },
+        "forgotPassword": {
+            "brand": {
+                "line1": "Don't worry",
+                "line2": "We'll help you in",
+                "line3": "Keep your blog safe"
+            },
+            "step1": {
+                "title": "Forgot Password",
+                "description": "Enter your registered email and we'll send you a verification code",
+                "email": {
+                    "label": "Email",
+                    "placeholder": "Enter the email you registered with"
+                },
+                "submit": "Send Code",
+                "backToLogin": "Back to Sign In"
+            },
+            "step2": {
+                "title": "Reset Password",
+                "description": "Enter the 6-digit code from your email and set a new password",
+                "email": {
+                    "label": "Email"
+                },
+                "code": {
+                    "label": "Verification Code",
+                    "placeholder": "Enter 6-digit code",
+                    "hint": "The code is valid for 15 minutes"
+                },
+                "newPassword": {
+                    "label": "New Password",
+                    "placeholder": "Choose a new password"
+                },
+                "submit": "Reset Password",
+                "back": "Back to previous step",
+                "resend": "Didn't receive? Resend"
+            }
+        },
+        "friendLinks": {
+            "filters": {
+                "all": "All",
+                "pending": "Pending",
+                "approved": "Approved",
+                "rejected": "Rejected"
+            },
+            "status": {
+                "pending": "Pending",
+                "approved": "Approved",
+                "rejected": "Rejected"
+            },
+            "detail": {
+                "emptyTitle": "No Link Selected",
+                "emptyDesc": "Select a friend link from the list to view details",
+                "description": "Description",
+                "tags": "Tags",
+                "applicantEmail": "Contact Email",
+                "rejectReason": "Reject Reason",
+                "appliedAt": "Applied At",
+                "joinedAt": "Joined At",
+                "preview": "Card Preview"
+            },
+            "actions": {
+                "approve": "Approve",
+                "reject": "Reject",
+                "delete": "Delete"
+            },
+            "reject": {
+                "title": "Reject Friend Link",
+                "reasonLabel": "Reason",
+                "reasonPlaceholder": "Let the applicant know why...",
+                "confirm": "Confirm Reject",
+                "cancel": "Cancel"
+            },
+            "delete": {
+                "title": "Delete Friend Link",
+                "message": "Are you sure you want to delete this friend link?",
+                "warning": "This action cannot be undone!"
+            }
+        },
+        "emails": {
+            "title": "Email Management",
+            "filters": {
+                "all": "All",
+                "unread": "Unread",
+                "type": "Type"
+            },
+            "types": {
+                "smtp_test": "SMTP Test",
+                "login_alert": "Login Alert",
+                "reset_password": "Password Reset",
+                "friend_link_apply": "Friend Link Application",
+                "friend_link_apply_confirmed": "Application Received",
+                "friend_link_approved": "Friend Link Approved",
+                "friend_link_rejected": "Friend Link Rejected"
+            },
+            "statuses": {
+                "failed": "Failed"
+            },
+            "preview": {
+                "errorMessageLabel": "Error"
+            },
+            "body_preview": {
+                "smtp_test": "SMTP connection test, sender: {senderEmail}",
+                "login_alert": "Login detected from {location} (IP: {ip})",
+                "reset_password": "Password reset request from {location}, IP: {ip}, expires in {minutes} min",
+                "friend_link_apply": "New application: {name} ({url})",
+                "friend_link_apply_confirmed": "Application from {name} received, pending review",
+                "friend_link_approved": "Friend link approved: {name}",
+                "friend_link_rejected": "Friend link rejected: {name}"
+            },
+            "empty_selection_title": "No Message Selected",
+            "empty_selection_desc": "Select a message from the list to view its details and content."
+        },
+        "setup": {
+            "steps": {
+                "step1": {
+                    "welcome": "Welcome to your new blog journey.",
+                    "title": "Appearance",
+                    "description": "Customize how your blog looks and feels.",
+                    "settings": {
+                        "language": "Language",
+                        "theme": "Theme Mode",
+                        "color": "Accent Color"
+                    }
+                },
+                "step2": {
+                    "title": "Site Information",
+                    "description": "This information will be displayed on the browser tab and at the bottom of the page.",
+                    "siteTitle": {
+                        "label": "Site Title",
+                        "placeholder": "e.g., My Personal Blog",
+                        "hint": "Displayed in browser tabs and search results, this is your website's name"
+                    },
+                    "siteIcon": {
+                        "label": "Site Icon",
+                        "upload": "Upload Icon",
+                        "change": "Change Icon",
+                        "uploading": "Uploading",
+                        "uploaded": "Icon Uploaded",
+                        "help1": "Recommended to use 256x256 or larger PNG/ICO files",
+                        "help2": "Maximum supported image size is 1MB"
+                    },
+                    "footer": {
+                        "label": "Footer Copyright",
+                        "placeholder": "YourName. All rights reserved.",
+                        "hint": "Displayed at the bottom of every page, typically used for copyright notices"
+                    },
+                    "icp": {
+                        "label": "ICP Filing Number",
+                        "placeholder": "e.g., ICP 00000000",
+                        "hint": "According to Chinese law, if your server is located in mainland China, you must display the ICP filing number"
+                    }
+                },
+                "step3": {
+                    "title": "Create Admin",
+                    "description": "Create your administrator account to log in and manage your blog.",
+                    "username": {
+                        "label": "Username",
+                        "placeholder": "e.g., admin or your name"
+                    },
+                    "email": {
+                        "label": "Email Address",
+                        "placeholder": "e.g., admin{'@'}example.com",
+                        "hint": "After configuring SMTP, the system may send notifications to this email"
+                    },
+                    "password": {
+                        "label": "Password",
+                        "placeholder": "Enter a strong password"
+                    },
+                    "confirm": {
+                        "label": "Confirm Password",
+                        "placeholder": "Re-enter your password",
+                        "error": "Passwords do not match"
+                    },
+                    "alreadyRegistered": "Account created"
+                },
+                "step4": {
+                    "title": "Personalization",
+                    "description": "Make your blog unique by uploading an avatar and home page banner for key locations.",
+                    "personalization": {
+                        "title": "Enable Personalization",
+                        "description": "Enabling this allows you to set an admin avatar and home page background.",
+                        "tag": "Optional"
+                    },
+                    "avatar": {
+                        "label": "Admin Avatar",
+                        "description": "Displayed in the homepage sidebar, recommended size 256x256 pixels.",
+                        "upload": "Upload Avatar",
+                        "change": "Change Avatar",
+                        "uploading": "Uploading",
+                        "uploaded": "Avatar Uploaded",
+                        "help": "Support common image formats · Max 2MB"
+                    },
+                    "hero": {
+                        "label": "Home Page Banner",
+                        "description": "This is your front door, displayed at the top of the home page.",
+                        "upload": "Upload Banner",
+                        "change": "Change Banner",
+                        "uploading": "Uploading",
+                        "uploaded": "Banner Uploaded",
+                        "recommend": "Recommended 16:9 ratio · Width ≥ 1920px",
+                        "format": "Support common image formats · Max 5MB"
+                    }
+                },
+                "step5": {
+                    "title": "Email Notifications",
+                    "description": "Configure SMTP service to enable your blog to send email notifications.",
+                    "smtp": {
+                        "title": "Enable SMTP",
+                        "description": "Enable this to configure email server for sending comment notifications, system messages, etc.",
+                        "tag": "Optional"
+                    },
+                    "test": {
+                        "button": "Test Connection",
+                        "success": "Connection Successful",
+                        "error": "Connection Failed"
+                    },
+                    "form": {
+                        "host": {
+                            "label": "SMTP Host",
+                            "placeholder": "e.g., smtp.gmail.com"
+                        },
+                        "port": {
+                            "label": "Port",
+                            "placeholder": "e.g., 587"
+                        },
+                        "username": {
+                            "label": "SMTP Username",
+                            "placeholder": "e.g., your-email{'@'}example.com"
+                        },
+                        "password": {
+                            "label": "SMTP Password",
+                            "placeholder": "Enter SMTP password or app password",
+                            "hint": "Some email providers (e.g., Gmail, Outlook) require an app-specific password instead of your login password"
+                        },
+                        "advanced": {
+                            "show": "Show Advanced Options",
+                            "hide": "Collapse advanced options"
+                        },
+                        "senderEmail": {
+                            "label": "Sender Email",
+                            "placeholder": "e.g., no-reply{'@'}example.com",
+                            "hint": "Defaults to SMTP username if not specified, useful for custom domain email services (e.g., Resend)"
+                        },
+                        "senderName": {
+                            "label": "Sender Name",
+                            "placeholder": "e.g., blog Bot",
+                            "hint": "If not specified, only email address is shown; when filled, displays as 'Name <email>' format"
+                        }
+                    },
+                    "preview": {
+                        "title": "Email Preview",
+                        "subject": "This is a test email",
+                        "body": "If you are reading this email, it means your SMTP service is configured correctly!",
+                        "footer": "This is an automated system email sent by {name}. Please do not reply."
+                    }
+                }
+            }
+        }
+    },
+    "common": {
+        "list": {
+            "count": "{count} items in total",
+            "empty": "No data yet, click the button above to add"
+        },
+        "refresh": "Refresh List",
+        "clear_all": "Clear Logs",
+        "no_data": "No messages",
+        "no_more_data": "No more data",
+        "validation": {
+            "auth": {
+                "username_range": "Username must be between 3-50 characters",
+                "email_invalid": "Please enter a valid email address",
+                "password_range": "Password must be between 6-50 characters"
+            },
+            "appearance": {
+                "theme_invalid": "Theme mode must be light/dark/auto",
+                "hue_range": "Hue must be a number between 0 and 360",
+                "language_invalid": "Language must be zh-CN or en-US"
+            },
+            "site_info": {
+                "title_range": "Site title is required and must be under 100 characters",
+                "favicon_range": "Favicon URL must be under 500 characters",
+                "footer_range": "Footer text must be under 255 characters",
+                "icp_range": "ICP number must be under 100 characters"
+            },
+            "personal_info": {
+                "username_range": "Display name must be under 100 characters",
+                "avatar_range": "Avatar URL must be under 500 characters",
+                "bio_range": "Bio must be under 500 characters",
+                "social_name_range": "Platform name must be under 50 characters",
+                "social_url_range": "Social link URL must be under 500 characters",
+                "hero_range": "Hero banner URL must be under 500 characters"
+            },
+            "smtp": {
+                "host_range": "SMTP host is required and must be under 255 characters",
+                "port_range": "Port must be an integer between 1 and 65535",
+                "username_range": "SMTP username is required and must be under 255 characters",
+                "password_range": "SMTP password is required and must be under 255 characters",
+                "sender_email_invalid": "Please enter a valid sender email",
+                "sender_name_range": "Sender name must be under 100 characters"
+            },
+            "config": {
+                "description_range": "Description must be under 255 characters"
+            },
+            "post": {
+                "slug_invalid": "Slug may only contain lowercase letters, numbers, and hyphens, e.g. my-first-post",
+                "excerpt_range": "Excerpt cannot exceed 500 characters"
+            }
+        },
+        "next": "Next Step",
+        "prev": "Previous",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "finish": "Finish",
+        "save": "Save Settings",
+        "delete": "Delete"
+    },
+    "stores": {
+        "setup": {
+            "progress": {
+                "step1": "Define your style",
+                "step2": "Give it a name",
+                "step3": "You are the admin",
+                "step4": "Make it look better",
+                "step5": "Connect the dots"
+            }
+        }
+    },
+    "api": {
+        "errors": {
+            "EMPTY_UPLOAD_REPLY": "Abnormal server upload response",
+            "Error": "Unable to connect to the backend service",
+            "请求参数验证失败": "Request validation failed",
+            "系统健康检查失败": "System health check failed",
+            "获取站点基本信息失败": "Failed to fetch site info",
+            "获取个性化配置失败": "Failed to fetch personalization info",
+            "用户名或邮箱已被注册": "Username or email is already registered",
+            "未登录或会话已过期": "Not logged in or session expired",
+            "\"body.icon\" has invalid file type": "Invalid icon file type",
+            "\"body.avatar\" has invalid file type": "Invalid avatar file type",
+            "\"body.hero\" has invalid file type": "Invalid hero image file type",
+            "请上传 1MB 以内的有效图片": "Please upload a valid image under 1MB.",
+            "请上传 5MB 以内的有效图片": "Please upload a valid image under 5MB.",
+            "请上传 2MB 以内的有效图片": "Please upload a valid image under 2MB.",
+            "请上传 100MB 以内的有效图片": "Please upload a valid image under 100MB.",
+            "\"body.image\" has invalid file type": "Invalid file type. Please upload an image file.",
+            "文章行内图处理失败，请重试": "Failed to process the image. Please try again.",
+            "SMTP 服务器连接失败: Invalid login: 535 Invalid username": "SMTP connection failed: Invalid username",
+            "SMTP 服务器连接失败: Invalid login: 535 Authentication credentials invalid": "SMTP connection failed: Authentication credentials (password or auth code) invalid",
+            "SMTP 服务器连接失败: getaddrinfo ENOTFOUND": "SMTP connection failed: Hostname not found (DNS error)",
+            "SMTP 服务器连接失败: Connection timeout": "SMTP connection failed: Connection timeout",
+            "SMTP 服务器连接失败: Greeting never received": "SMTP connection failed: Greeting never received (Check encryption settings or port)",
+            "SMTP 配置不存在，请先完成邮件服务配置": "SMTP is not configured. Please complete your email settings first.",
+            "SMTP 服务未启用，请先在设置中开启邮件服务": "SMTP is disabled. Please enable it in Settings first.",
+            "验证码无效或已过期": "Verification code is invalid or expired",
+            "账户已被封禁": "This account has been banned",
+            "文章不存在": "Post not found",
+            "只能永久删除回收站中的文章，请先将文章移入回收站": "Only posts in Trash can be permanently deleted",
+            "该 slug 已被其他文章使用": "This slug is already used by another post"
+        },
+        "success": {
+            "保存成功": "Settings saved successfully",
+            "获取成功": "Fetched successfully",
+            "注册成功": "Registration successful",
+            "登录成功": "Login successful",
+            "登出成功": "Logout successful",
+            "图标上传成功": "Icon uploaded successfully",
+            "横幅上传成功": "Banner uploaded successfully",
+            "头像上传成功": "Avatar uploaded successfully",
+            "社交图标上传成功": "Social icon uploaded successfully",
+            "封面图上传成功": "Cover image uploaded successfully",
+            "图片上传成功": "Image uploaded successfully",
+            "邮件发送成功": "Email sent successfully",
+            "若邮箱存在，验证码已发送，请注意查收": "If the email exists, a verification code has been sent",
+            "密码重置成功，请使用新密码登录": "Password reset successfully. Please sign in with your new password",
+            "申请已提交，等待审核": "Application submitted, pending review",
+            "已通过": "Approved",
+            "已拒绝": "Rejected",
+            "删除成功": "Deleted successfully",
+            "更新成功": "Updated successfully"
+        }
+    }
+}

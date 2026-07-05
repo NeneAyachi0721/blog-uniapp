@@ -1,0 +1,944 @@
+{
+    "components": {
+        "common": {
+            "layout": {
+                "Header": {
+                    "nav": {
+                        "home": "首页",
+                        "archive": "归档",
+                        "friends": "友链"
+                    },
+                    "menu": {
+                        "title": "导航菜单",
+                        "open": "打开菜单",
+                        "close": "关闭菜单"
+                    }
+                }
+            },
+            "admin": {
+                "PostsNav": {
+                    "nav": {
+                        "list": "文章管理",
+                        "editor": "写文章"
+                    }
+                },
+                "AdminSidebar": {
+                    "user": {
+                        "logout": "点击退出登录",
+                        "modal": {
+                            "title": "退出登录",
+                            "question": "确认要退出登录吗？",
+                            "warning": "退出后需要重新登录才能访问管理后台"
+                        }
+                    }
+                },
+                "AdminHeader": {
+                    "pages": {
+                        "dashboard": "仪表盘",
+                        "posts": "文章管理",
+                        "post-edit": "文章编辑",
+                        "emails": "邮件管理",
+                        "friend-links": "友链审批",
+                        "settings": "系统设置",
+                        "default": "管理后台"
+                    },
+                    "actions": {
+                        "goHome": "返回首页"
+                    }
+                }
+            },
+            "input": {
+                "TipInput": {
+                    "required": "此项不能为空"
+                },
+                "SearchInput": {
+                    "placeholder": "搜索..."
+                }
+            },
+            "button": {
+                "NotificationButton": {
+                    "empty": "暂无通知",
+                    "markAllRead": "一键已读",
+                    "viewAll": "查看全部消息"
+                }
+            },
+            "BrowserMockup": {
+                "preview": "实时预览"
+            },
+            "item": {
+                "Brand": {
+                    "line1": "欢迎使用",
+                    "line2": "blog",
+                    "line3": "让我们开始配置吧"
+                }
+            }
+        },
+        "base": {
+            "progress": {
+                "BaseProgress": {
+                    "step": "第 {current}/{total} 步"
+                }
+            },
+            "search": {
+                "HeaderSearch": {
+                    "placeholder": "搜索文章...",
+                    "searching": "搜索中...",
+                    "noResults": "未找到相关文章",
+                    "untitled": "无标题"
+                }
+            }
+        },
+        "theme": {
+            "ToggleColor": {
+                "paletteTitle": "主题颜色"
+            },
+            "ToggleTheme": {
+                "light": "浅色",
+                "dark": "深色",
+                "auto": "系统"
+            }
+        }
+    },
+    "views": {
+        "main": {
+            "home": {
+                "PostCard": {
+                    "untitled": "新文章",
+                    "words": "字",
+                    "views": "阅读",
+                    "empty": "暂无文章",
+                    "pinned": "置顶"
+                }
+            },
+            "post": {
+                "back": "返回",
+                "notFound": "文章不存在或已被删除",
+                "untitled": "无标题",
+                "words": "字",
+                "views": "阅读"
+            },
+            "archive": {
+                "empty": "暂无文章",
+                "postsCount": "篇",
+                "untitled": "无标题"
+            },
+            "friends": {
+                "listTitle": "友链",
+                "listEmpty": "暂无友链，成为第一个！",
+                "siteCount": "{count} 个站点",
+                "applyTitle": "申请友链",
+                "applyDesc": "填写你的站点信息，等待博主审核",
+                "form": {
+                    "name": "站点名称",
+                    "namePlaceholder": "My Blog",
+                    "url": "站点地址",
+                    "urlPlaceholder": "https://example.com",
+                    "avatarUrl": "站点图标 URL",
+                    "avatarUrlPlaceholder": "https://example.com/avatar.png",
+                    "description": "站点简介",
+                    "descPlaceholder": "一句话介绍你的博客",
+                    "tags": "标签",
+                    "tagsPlaceholder": "技术、生活... 按 Enter 或逗号添加",
+                    "email": "联系邮箱",
+                    "emailPlaceholder": "用于接收审批结果通知",
+                    "emailHint": "填写后，审批通过或拒绝时会发邮件通知你",
+                    "submit": "提交申请"
+                }
+            },
+            "hero": {
+                "titleEditor": {
+                    "triggerText": "编辑首页主副标题",
+                    "triggerAriaLabel": "编辑首页主副标题",
+                    "modalTitle": "首页主副标题编辑",
+                    "mainTitle": "主标题",
+                    "placeholder": "例如：欢迎来到我的小屋",
+                    "subtitles": {
+                        "title": "副标题",
+                        "add": "新增一条",
+                        "placeholder": "副标题 {index}"
+                    }
+                }
+            }
+        },
+        "admin": {
+            "Posts": {
+                "filter": {
+                    "all": "全部",
+                    "draft": "草稿",
+                    "published": "已发布",
+                    "archived": "归档",
+                    "deleted": "回收站"
+                },
+                "table": {
+                    "col": {
+                        "post": "文章",
+                        "status": "状态",
+                        "tags": "标签",
+                        "views": "浏览",
+                        "time": "时间",
+                        "actions": "操作"
+                    },
+                    "actions": {
+                        "edit": "编辑",
+                        "publish": "发布",
+                        "toDraft": "转为草稿",
+                        "archive": "归档",
+                        "trash": "移入回收站",
+                        "restore": "恢复为草稿",
+                        "permanentDelete": "永久删除"
+                    },
+                    "untitled": "新文章",
+                    "empty": "暂无文章",
+                    "noTags": "无标签",
+                    "bulk": {
+                        "changeStatus": "修改状态",
+                        "statusModal": {
+                            "title": "批量修改状态",
+                            "question": "请选择要将以下文章修改为的目标状态：",
+                            "confirm": "确认修改为 {status}"
+                        },
+                        "delete": "批量删除",
+                        "trashModal": {
+                            "title": "批量移入回收站",
+                            "question": "您确定要将以下文章移入回收站吗？",
+                            "listHeader": "即将移入回收站",
+                            "warning": "移入回收站的文章可在「回收站」中找回并恢复",
+                            "confirm": "全部移入回收站"
+                        },
+                        "deleteModal": {
+                            "title": "批量永久删除",
+                            "question": "您确定要永久删除以下文章吗？",
+                            "listHeader": "即将永久删除",
+                            "warning": "此操作不可撤销，文章将被彻底删除，无法恢复",
+                            "confirm": "全部永久删除"
+                        }
+                    },
+                    "timeLabel": {
+                        "published": "发布于",
+                        "deleted": "删除于",
+                        "updated": "修改于"
+                    },
+                    "confirm": {
+                        "trash": {
+                            "title": "移入回收站",
+                            "question": "您确定要将「{title}」移入回收站吗？",
+                            "warning": "移入回收站的文章可在「回收站」中找回并恢复",
+                            "confirm": "移入回收站"
+                        },
+                        "delete": {
+                            "title": "永久删除文章",
+                            "question": "您确定要永久删除「{title}」吗？",
+                            "warning": "此操作不可撤销，文章将被彻底删除，无法恢复",
+                            "confirm": "永久删除"
+                        }
+                    }
+                }
+            },
+            "Settings": {
+                "nav": {
+                    "appearance": "界面外观",
+                    "site": "站点信息",
+                    "admin": "管理员信息",
+                    "smtp": "SMTP设置"
+                },
+                "appearance": {
+                    "settings": {
+                        "languageHint": "由于预览页面处于独立环境，切换语言后需自动刷新。主题和色相设置实时同步。"
+                    },
+                    "viewport": {
+                        "title": "预览设备",
+                        "desktop": "桌面端",
+                        "mobile": "移动端"
+                    }
+                },
+                "site": {
+                    "siteInfo": {
+                        "title": "站点信息",
+                        "description": "设置站点名称和图标，将展示在浏览器标签页中。"
+                    },
+                    "hero": {
+                        "description": "设置首页显示的标题和副标题，支持多条副标题自动循环播放。"
+                    },
+                    "footer": {
+                        "title": "页脚设置",
+                        "description": "配置站点页脚显示内容",
+                        "links": {
+                            "title": "页脚链接",
+                            "add": "添加链接",
+                            "namePlaceholder": "名称 (如 GitHub)",
+                            "urlPlaceholder": "地址 (如 https://...)"
+                        }
+                    }
+                },
+                "admin": {
+                    "account": {
+                        "title": "账号安全",
+                        "description": "管理您的登录凭据，包括用户名、邮箱和密码。",
+                        "passwordPlaceholder": "不修改请留空"
+                    },
+                    "profile": {
+                        "title": "个人资料",
+                        "description": "设置您的个人简介，并管理在首页展示的社交平台链接。",
+                        "bio": "个人简介",
+                        "bioPlaceholder": "用几句话介绍一下你自己..."
+                    },
+                    "social": {
+                        "links": {
+                            "title": "社交平台",
+                            "add": "添加链接",
+                            "namePlaceholder": "平台 (如 GitHub)",
+                            "urlPlaceholder": "链接 (如 https://...)",
+                            "nameRequired": "请先填写平台名称后再上传图标",
+                            "iconLight": "浅色图标",
+                            "iconDark": "深色图标"
+                        }
+                    }
+                },
+                "smtp": {
+                    "section": {
+                        "title": "SMTP服务",
+                        "description": "配置 SMTP 服务器以启用邮件发送功能，用于发送系统通知等。"
+                    },
+                    "preview": {
+                        "testEmailTitle": "这是一封来自 blog 的测试邮件",
+                        "greeting": "你好，{name}！",
+                        "testMessage": "这是一封用于验证 SMTP 配置的自动生成的测试邮件。如果你能收到此邮件，说明你的邮件服务已成功连接并准备就绪。",
+                        "connectionDetailsTitle": "连接详情",
+                        "detailProtocol": "传输协议",
+                        "detailEncryption": "加密方式",
+                        "detailTime": "时间戳",
+                        "detailSender": "发件地址",
+                        "footerNote": "此邮件由系统自动发出，旨在测试连接稳定性，无需回复。"
+                    },
+                    "send": {
+                        "title": "发送邮件",
+                        "description": "输入收件人地址，预览解析结果后发送通知邮件。",
+                        "recipient": {
+                            "label": "收件人",
+                            "hint": "支持同时输入多个邮箱地址，使用英文逗号（,）、分号（;）或空格分隔，列表将自动同步",
+                            "placeholder": "user1{'@'}example.com, user2{'@'}example.com"
+                        },
+                        "list": {
+                            "title": "收件人列表",
+                            "add": "添加",
+                            "placeholder": "请输入邮箱地址"
+                        },
+                        "button": "发送邮件",
+                        "noRecipient": "请添加至少一位收件人"
+                    }
+                }
+            },
+            "Dashboard": {
+                "stats": {
+                    "totalVisits": "总访问量",
+                    "publishedPosts": "已发布文章数",
+                    "pendingFriendLinks": "待审友链",
+                    "unreadEmails": "未读邮件数",
+                    "unitPosts": "篇",
+                    "unitUnread": "需阅读",
+                    "unitPending": "待审核"
+                },
+                "quickNote": {
+                    "title": "灵感速记",
+                    "description": "快速记录一闪而过的想法",
+                    "titleLabel": "标题",
+                    "titleHint": "给这条灵感起个名字",
+                    "titlePlaceholder": "比如：一个新的写作点子",
+                    "contentLabel": "正文",
+                    "contentPlaceholder": "把你的灵感写下来...",
+                    "save": "保存草稿"
+                }
+            },
+            "PostEditor": {
+                "statusBar": {
+                    "unsaved": "未保存",
+                    "saved": "已保存",
+                    "saving": "保存中",
+                    "save": "保存",
+                    "stats": "选中 {selected} / 全文 {total} 字"
+                },
+                "settingsPanel": {
+                    "title": "文章设置",
+                    "tags": {
+                        "label": "文章标签",
+                        "tooltip": "为文章添加标签，有助于分类和内容检索",
+                        "placeholder": "输入后按 Enter 添加"
+                    },
+                    "slug": {
+                        "label": "永久连接",
+                        "tooltip": "将根据标题自动填写，你也可以手动修改；发布前不能为空",
+                        "placeholder": "article-url-slug"
+                    },
+                    "status": {
+                        "label": "文章状态",
+                        "tooltip": "控制文章的可见性，草稿仅自己可见"
+                    },
+                    "excerpt": {
+                        "label": "文章摘要",
+                        "tooltip": "手动填写摘要，未填则由系统自动截取正文前段",
+                        "placeholder": "简短介绍这篇文章的内容…"
+                    },
+                    "coverImage": {
+                        "label": "封面图",
+                        "tooltip": "设置文章封面图，将在列表与详情页展示",
+                        "hint": "点击上传，建议 16:9"
+                    },
+                    "properties": {
+                        "label": "文章属性",
+                        "tooltip": "控制文章在前台的展示行为",
+                        "pinned": {
+                            "label": "置顶文章",
+                            "tooltip": "置顶后将在前台文章列表中排在最前"
+                        }
+                    }
+                },
+                "content": {
+                    "title": {
+                        "placeholder": "文章标题"
+                    },
+                    "body": {
+                        "placeholder": "开始写作，或输入 / 选择内容块..."
+                    },
+                    "bubbleMenu": {
+                        "bold": "粗体 (Ctrl/⌘+B)\nmarkdown:**文本** 空格",
+                        "italic": "斜体 (Ctrl/⌘+I)\nmarkdown:*文本* 空格",
+                        "strike": "删除线 (Ctrl/⌘+Shift+S)\nmarkdown:~~文本~~ 空格",
+                        "underline": "下划线 (Ctrl/⌘+U)\nmarkdown:~文本~ 空格",
+                        "code": "行内代码 (Ctrl/⌘+E)\nmarkdown:`文本` 空格",
+                        "alignLeft": "左对齐",
+                        "alignCenter": "居中对齐",
+                        "alignRight": "右对齐",
+                        "indent": "增加缩进",
+                        "outdent": "减少缩进",
+                        "link": "插入链接 (Ctrl/⌘+K)",
+                        "linkEdit": "编辑链接",
+                        "linkRemove": "移除链接",
+                        "linkUrlPlaceholder": "https://...",
+                        "linkConfirm": "插入"
+                    },
+                    "blockCommands": {
+                        "paragraph": {
+                            "label": "正文",
+                            "tooltip": "正文"
+                        },
+                        "heading1": {
+                            "label": "H1",
+                            "tooltip": "一级标题\nmarkdown:# 空格"
+                        },
+                        "heading2": {
+                            "label": "H2",
+                            "tooltip": "二级标题\nmarkdown:## 空格"
+                        },
+                        "heading3": {
+                            "label": "H3",
+                            "tooltip": "三级标题\nmarkdown:### 空格"
+                        },
+                        "bulletList": {
+                            "label": "无序列表",
+                            "tooltip": "无序列表\nmarkdown:- 空格"
+                        },
+                        "orderedList": {
+                            "label": "有序列表",
+                            "tooltip": "有序列表\nmarkdown:1. 空格"
+                        },
+                        "taskList": {
+                            "label": "待办列表",
+                            "tooltip": "待办列表\nmarkdown:[ ] 空格"
+                        },
+                        "codeBlock": {
+                            "label": "代码块",
+                            "tooltip": "代码块\nmarkdown:``` 换行"
+                        },
+                        "quote": {
+                            "label": "引用",
+                            "tooltip": "引用\nmarkdown:> 空格"
+                        },
+                        "horizontalRule": {
+                            "label": "分割线",
+                            "tooltip": "分割线\nmarkdown:--- 换行"
+                        }
+                    },
+                    "codeBlock": {
+                        "languageEmpty": "未匹配语言"
+                    },
+                    "slashMenu": {
+                        "empty": "没有匹配的命令",
+                        "groups": {
+                            "basic": "基础",
+                            "common": "常用",
+                            "list": "列表"
+                        }
+                    },
+                    "slashCommands": {
+                        "table": {
+                            "label": "表格"
+                        },
+                        "image": {
+                            "label": "图片"
+                        },
+                        "clearFormatting": {
+                            "label": "清除格式"
+                        }
+                    },
+                    "colorMenu": {
+                        "tooltip": "字体颜色 / 背景色",
+                        "textColor": "字体颜色",
+                        "bgColor": "背景颜色",
+                        "colors": {
+                            "default": "默认",
+                            "none": "无",
+                            "gray": "灰色",
+                            "brown": "棕色",
+                            "orange": "橙色",
+                            "yellow": "黄色",
+                            "green": "绿色",
+                            "blue": "蓝色",
+                            "purple": "紫色",
+                            "pink": "粉色",
+                            "red": "红色",
+                            "custom": "自定义"
+                        }
+                    },
+                    "tablePicker": {
+                        "label": "表格",
+                        "hint": "选择表格尺寸",
+                        "dimensions": "{rows} × {cols}"
+                    },
+                    "imagePicker": {
+                        "label": "图片"
+                    },
+                    "orderedListMenu": {
+                        "continue": "继续上一段编号",
+                        "startNew": "从 1 开始",
+                        "setStart": "起始编号",
+                        "tooltip": "设置编号"
+                    },
+                    "tableMenu": {
+                        "mergeCells": "合并单元格",
+                        "splitCell": "拆分单元格",
+                        "setHeader": "设为表头",
+                        "deleteRow": "删除行",
+                        "deleteColumn": "删除列",
+                        "cellBackground": "单元格背景色",
+                        "cut": "剪切表格",
+                        "copy": "复制表格",
+                        "deleteTable": "删除表格"
+                    },
+                    "tableControls": {
+                        "selectColumn": "选中整列",
+                        "selectRow": "选中整行",
+                        "insertColumn": "插入列",
+                        "insertRow": "插入行"
+                    },
+                    "handleMenu": {
+                        "groups": {
+                            "basic": "基础",
+                            "common": "常用",
+                            "list": "列表"
+                        }
+                    }
+                }
+            }
+        },
+        "login": {
+            "brand": {
+                "line1": "嘿,好久不见",
+                "line2": "准备好了吗",
+                "line3": "让我们继续创作"
+            },
+            "title": "欢迎回来",
+            "description": "登录后继续管理你的博客",
+            "identifier": {
+                "label": "用户名或邮箱",
+                "placeholder": "请输入用户名或邮箱"
+            },
+            "password": {
+                "label": "密码",
+                "placeholder": "请输入密码"
+            },
+            "submit": "登录",
+            "backToHome": "返回首页",
+            "forgotPassword": "忘记密码？"
+        },
+        "forgotPassword": {
+            "brand": {
+                "line1": "别担心",
+                "line2": "我们帮你找回",
+                "line3": "继续守护你的博客"
+            },
+            "step1": {
+                "title": "忘记密码",
+                "description": "输入注册邮箱，我们会给你发送一封带验证码的邮件",
+                "email": {
+                    "label": "邮箱",
+                    "placeholder": "请输入注册时使用的邮箱"
+                },
+                "submit": "发送验证码",
+                "backToLogin": "返回登录"
+            },
+            "step2": {
+                "title": "重置密码",
+                "description": "请输入邮箱中收到的 6 位验证码并设置新密码",
+                "email": {
+                    "label": "邮箱"
+                },
+                "code": {
+                    "label": "验证码",
+                    "placeholder": "请输入 6 位验证码",
+                    "hint": "验证码 15 分钟内有效，请尽快使用"
+                },
+                "newPassword": {
+                    "label": "新密码",
+                    "placeholder": "请设置新密码"
+                },
+                "submit": "重置密码",
+                "back": "返回上一步",
+                "resend": "没收到？重新发送"
+            }
+        },
+        "friendLinks": {
+            "filters": {
+                "all": "全部",
+                "pending": "待审批",
+                "approved": "已通过",
+                "rejected": "已拒绝"
+            },
+            "status": {
+                "pending": "待审批",
+                "approved": "已通过",
+                "rejected": "已拒绝"
+            },
+            "detail": {
+                "emptyTitle": "未选中友链",
+                "emptyDesc": "请从左侧列表中选择一条友链查看详情",
+                "description": "站点简介",
+                "tags": "标签",
+                "applicantEmail": "联系邮箱",
+                "rejectReason": "拒绝原因",
+                "appliedAt": "申请时间",
+                "joinedAt": "入驻时间",
+                "preview": "前台预览"
+            },
+            "actions": {
+                "approve": "通过",
+                "reject": "拒绝",
+                "delete": "删除"
+            },
+            "reject": {
+                "title": "拒绝友链申请",
+                "reasonLabel": "拒绝原因",
+                "reasonPlaceholder": "告知申请人拒绝原因...",
+                "confirm": "确认拒绝",
+                "cancel": "取消"
+            },
+            "delete": {
+                "title": "删除友链",
+                "message": "确定要删除这个友链吗？",
+                "warning": "此操作不可撤销！"
+            }
+        },
+        "emails": {
+            "title": "邮件管理",
+            "filters": {
+                "all": "全部",
+                "unread": "未读",
+                "type": "类型"
+            },
+            "types": {
+                "smtp_test": "SMTP 测试",
+                "login_alert": "异地登录提醒",
+                "reset_password": "密码重置",
+                "friend_link_apply": "友链申请通知",
+                "friend_link_apply_confirmed": "申请接收确认",
+                "friend_link_approved": "友链审批通过",
+                "friend_link_rejected": "友链审批拒绝"
+            },
+            "statuses": {
+                "failed": "失败"
+            },
+            "preview": {
+                "errorMessageLabel": "失败原因"
+            },
+            "body_preview": {
+                "smtp_test": "SMTP 连接测试，发件人: {senderEmail}",
+                "login_alert": "检测到来自 {location} 的登录 (IP: {ip})",
+                "reset_password": "密码重置请求，来自 {location}，IP: {ip}，有效期 {minutes} 分钟",
+                "friend_link_apply": "新友链申请：{name}（{url}）",
+                "friend_link_apply_confirmed": "已收到 {name} 的友链申请，等待审核",
+                "friend_link_approved": "友链审批通过：{name}",
+                "friend_link_rejected": "友链审批拒绝：{name}"
+            },
+            "empty_selection_title": "未选中邮件",
+            "empty_selection_desc": "请从左侧列表中选择一封邮件来查看其详细内容。"
+        },
+        "setup": {
+            "steps": {
+                "step1": {
+                    "welcome": "欢迎开始你的博客之旅。",
+                    "title": "外观设置",
+                    "description": "自定义你的博客外观和感觉。",
+                    "settings": {
+                        "language": "语言",
+                        "theme": "主题模式",
+                        "color": "主题色"
+                    }
+                },
+                "step2": {
+                    "title": "站点信息",
+                    "description": "这些信息将展示在浏览器标签页和页面底部。",
+                    "siteTitle": {
+                        "label": "站点标题",
+                        "placeholder": "例如：我的个人博客",
+                        "hint": "显示在浏览器标签页和搜索引擎结果中，是网站的名称"
+                    },
+                    "siteIcon": {
+                        "label": "站点图标",
+                        "upload": "上传图标",
+                        "change": "修改图标",
+                        "uploading": "上传中",
+                        "uploaded": "图标已上传",
+                        "help1": "推荐使用 256x256 或更大的 PNG/ICO 格式文件",
+                        "help2": "最大支持 1MB 的图片"
+                    },
+                    "footer": {
+                        "label": "页脚版权信息",
+                        "placeholder": "YourName. All rights reserved.",
+                        "hint": "将显示在网站每个页面的最底部，通常用于版权声明"
+                    },
+                    "icp": {
+                        "label": "备案号",
+                        "placeholder": "例如：京ICP备00000000号",
+                        "hint": "根据中国法律，若您的服务器位于中国大陆，则必须展示备案号"
+                    }
+                },
+                "step3": {
+                    "title": "创建管理员",
+                    "description": "创建你的管理员账号，用于登录后台管理博客。",
+                    "username": {
+                        "label": "用户名",
+                        "placeholder": "例如：admin 或你的名字"
+                    },
+                    "email": {
+                        "label": "电子邮箱",
+                        "placeholder": "例如：admin{'@'}example.com",
+                        "hint": "配置 SMTP 后，系统可能会向此邮箱发送通知"
+                    },
+                    "password": {
+                        "label": "密码",
+                        "placeholder": "请设置一个安全的密码"
+                    },
+                    "confirm": {
+                        "label": "确认密码",
+                        "placeholder": "请再次输入密码以确认",
+                        "error": "两次输入的密码不一致"
+                    },
+                    "alreadyRegistered": "账号创建成功"
+                },
+                "step4": {
+                    "title": "个性化",
+                    "description": "让你的博客更具个性，上传头像与首页图片，展示在站点关键位置。",
+                    "personalization": {
+                        "title": "启用个性化",
+                        "description": "开启后可以设置管理员头像和主页背景图。",
+                        "tag": "可选"
+                    },
+                    "avatar": {
+                        "label": "管理员头像",
+                        "description": "显示在首页侧边栏，推荐尺寸 256x256 像素。",
+                        "upload": "上传头像",
+                        "change": "更换头像",
+                        "uploading": "上传中",
+                        "uploaded": "头像已上传",
+                        "help": "支持常见图片格式 · 最大 2MB"
+                    },
+                    "hero": {
+                        "label": "首页横幅图",
+                        "description": "这是你的主页门面，将展示在首页顶部的核心位置。",
+                        "upload": "上传横幅",
+                        "change": "更换横幅",
+                        "uploading": "上传中",
+                        "uploaded": "横幅已上传",
+                        "recommend": "推荐 16:9 比例 · 宽度 ≥ 1920px",
+                        "format": "支持常见图片格式 · 最大 5MB"
+                    }
+                },
+                "step5": {
+                    "title": "邮件通知",
+                    "description": "配置 SMTP 服务，让你的博客能够发送邮件通知。",
+                    "smtp": {
+                        "title": "启用 SMTP",
+                        "description": "开启后可以配置邮件服务器，用于发送评论通知、系统消息等。",
+                        "tag": "可选"
+                    },
+                    "test": {
+                        "button": "测试连接",
+                        "success": "连接成功",
+                        "error": "连接失败"
+                    },
+                    "form": {
+                        "host": {
+                            "label": "SMTP 服务器地址",
+                            "placeholder": "例如：smtp.gmail.com"
+                        },
+                        "port": {
+                            "label": "端口",
+                            "placeholder": "例如：587"
+                        },
+                        "username": {
+                            "label": "SMTP 用户名",
+                            "placeholder": "例如：your-email{'@'}example.com"
+                        },
+                        "password": {
+                            "label": "SMTP 密码",
+                            "placeholder": "请输入 SMTP 密码或授权码",
+                            "hint": "部分邮件服务商（如 Gmail、QQ 邮箱）需要使用专用授权码，而非登录密码"
+                        },
+                        "advanced": {
+                            "show": "显示高级选项",
+                            "hide": "收起高级选项"
+                        },
+                        "senderEmail": {
+                            "label": "发件人邮箱",
+                            "placeholder": "例如：no-reply{'@'}example.com",
+                            "hint": "不填写时默认使用 SMTP 用户名，适用于自定义域名邮件服务（如 Resend）"
+                        },
+                        "senderName": {
+                            "label": "发件人名称",
+                            "placeholder": "例如：blog Bot",
+                            "hint": "不填写时邮件中只显示邮箱地址，填写后显示为「名称 <邮箱>」格式"
+                        }
+                    },
+                    "preview": {
+                        "title": "邮件预览",
+                        "subject": "这是一封测试邮件",
+                        "body": "如果你能看到这封邮件，说明你的 SMTP 服务已经配置成功了！",
+                        "footer": "这是由 {name} 自动发送的系统邮件，请勿直接回复。"
+                    }
+                }
+            }
+        }
+    },
+    "common": {
+        "list": {
+            "count": "共 {count} 条",
+            "empty": "暂无数据，请点击上方按钮添加"
+        },
+        "refresh": "刷新列表",
+        "clear_all": "清空日志",
+        "no_data": "暂无消息",
+        "no_more_data": "已经到底啦",
+        "validation": {
+            "auth": {
+                "username_range": "用户名长度需在3-50位之间",
+                "email_invalid": "请输入有效的电子邮箱地址",
+                "password_range": "密码长度需在6-50位之间"
+            },
+            "appearance": {
+                "theme_invalid": "主题模式仅支持 light/dark/auto",
+                "hue_range": "主题色相必须为 0-360 之间的数字",
+                "language_invalid": "界面语言仅支持 zh-CN/en-US"
+            },
+            "site_info": {
+                "title_range": "站点标题不能为空且不能超过100个字符",
+                "favicon_range": "站点图标 URL 长度不能超过500个字符",
+                "footer_range": "页脚信息长度不能超过255个字符",
+                "icp_range": "备案号长度不能超过100个字符"
+            },
+            "personal_info": {
+                "username_range": "显示名称长度不能超过100个字符",
+                "avatar_range": "头像 URL 长度不能超过500个字符",
+                "bio_range": "个人简介长度不能超过500个字符",
+                "social_name_range": "社交平台名称长度不能超过50个字符",
+                "social_url_range": "社交链接 URL 长度不能超过500个字符",
+                "hero_range": "首页横幅 URL 长度不能超过500个字符"
+            },
+            "smtp": {
+                "host_range": "SMTP 服务器地址不能为空且不能超过255个字符",
+                "port_range": "端口必须是 1-65535 的整数",
+                "username_range": "SMTP 用户名不能为空且不能超过255个字符",
+                "password_range": "SMTP 密码不能为空且不能超过255个字符",
+                "sender_email_invalid": "请输入有效的发件人邮箱",
+                "sender_name_range": "发件人名称长度不能超过100个字符"
+            },
+            "config": {
+                "description_range": "配置描述长度不能超过255个字符"
+            },
+            "post": {
+                "slug_invalid": "Slug 只能包含小写字母、数字和连字符，如 my-first-post",
+                "excerpt_range": "摘要不能超过 500 字"
+            }
+        },
+        "next": "下一步",
+        "prev": "上一步",
+        "cancel": "取消",
+        "confirm": "确认",
+        "finish": "完成",
+        "save": "保存设置",
+        "delete": "删除"
+    },
+    "stores": {
+        "setup": {
+            "progress": {
+                "step1": "定义你的风格",
+                "step2": "给博客起个名字",
+                "step3": "你是这里的超级管理员",
+                "step4": "让主页更好看",
+                "step5": "打通消息通知"
+            }
+        }
+    },
+    "api": {
+        "errors": {
+            "EMPTY_UPLOAD_REPLY": "服务器上传响应异常",
+            "Error": "无法连接到后端服务",
+            "请求参数验证失败": "请求参数验证失败",
+            "系统健康检查失败": "系统健康检查失败",
+            "获取站点基本信息失败": "获取站点基本信息失败",
+            "获取个性化配置失败": "获取个性化配置失败",
+            "用户名或邮箱已被注册": "用户名或邮箱已被注册",
+            "未登录或会话已过期": "未登录或会话已过期",
+            "\"body.icon\" has invalid file type": "图标格式不支持",
+            "\"body.avatar\" has invalid file type": "头像格式不支持",
+            "\"body.hero\" has invalid file type": "横幅图片格式不支持",
+            "请上传 1MB 以内的有效图片": "请上传 1MB 以内的有效图片",
+            "请上传 5MB 以内的有效图片": "请上传 5MB 以内的有效图片",
+            "请上传 2MB 以内的有效图片": "请上传 2MB 以内的有效图片",
+            "请上传 100MB 以内的有效图片": "请上传 100MB 以内的有效图片",
+            "\"body.image\" has invalid file type": "文章图片格式不支持，请上传图片文件",
+            "文章行内图处理失败，请重试": "图片处理失败，请重试",
+            "SMTP 服务器连接失败: Invalid login: 535 Invalid username": "SMTP 连接失败：用户名无效",
+            "SMTP 服务器连接失败: Invalid login: 535 Authentication credentials invalid": "SMTP 连接失败：认证凭据（密码或授权码）无效",
+            "SMTP 服务器连接失败: getaddrinfo ENOTFOUND": "SMTP 连接失败：无法解析服务器地址 (DNS 错误)",
+            "SMTP 服务器连接失败: Connection timeout": "SMTP 连接失败：连接服务器超时",
+            "SMTP 服务器连接失败: Greeting never received": "SMTP 连接失败：未从服务器收到问候（请检查加密设置或端口）",
+            "SMTP 配置不存在，请先完成邮件服务配置": "SMTP 配置不存在，请先完成邮件服务配置",
+            "SMTP 服务未启用，请先在设置中开启邮件服务": "SMTP 服务未启用，请先在设置中开启邮件服务",
+            "验证码无效或已过期": "验证码无效或已过期",
+            "账户已被封禁": "账户已被封禁",
+            "文章不存在": "文章不存在",
+            "只能永久删除回收站中的文章，请先将文章移入回收站": "只能永久删除回收站中的文章，请先将文章移入回收站",
+            "该 slug 已被其他文章使用": "该 slug 已被其他文章使用"
+        },
+        "success": {
+            "保存成功": "保存成功",
+            "获取成功": "获取成功",
+            "注册成功": "注册成功",
+            "登录成功": "登录成功",
+            "登出成功": "登出成功",
+            "图标上传成功": "图标上传成功",
+            "横幅上传成功": "横幅上传成功",
+            "头像上传成功": "头像上传成功",
+            "社交图标上传成功": "社交图标上传成功",
+            "封面图上传成功": "封面图上传成功",
+            "图片上传成功": "图片上传成功",
+            "邮件发送成功": "邮件发送成功",
+            "若邮箱存在，验证码已发送，请注意查收": "若邮箱存在，验证码已发送，请注意查收",
+            "密码重置成功，请使用新密码登录": "密码重置成功，请使用新密码登录",
+            "申请已提交，等待审核": "申请已提交，等待审核",
+            "已通过": "已通过",
+            "已拒绝": "已拒绝",
+            "删除成功": "删除成功",
+            "更新成功": "更新成功"
+        }
+    }
+}

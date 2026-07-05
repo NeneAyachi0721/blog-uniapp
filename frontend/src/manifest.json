@@ -1,0 +1,17 @@
+{
+  "name": "Blog Mini",
+  "appid": "__UNI__BLOGMINI",
+  "description": "A uni-app WeChat mini program frontend for ohmyblog.",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true
+    },
+    "usingComponents": true
+  }
+}

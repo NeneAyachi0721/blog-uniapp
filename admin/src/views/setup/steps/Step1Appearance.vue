@@ -1,0 +1,73 @@
+<!-- src/views/setup/steps/Step1Appearance.vue -->
+<script setup lang="ts">
+import StepLayout from "../components/StepLayout.vue";
+import LanguageSelector from "../components/theme/LanguageSelector.vue";
+import ThemeModeSelector from "../components/theme/ThemeModeSelector.vue";
+import ThemeColorPicker from "../components/theme/ThemeColorPicker.vue";
+import { useTheme } from "@/composables/theme.hook";
+import { useLang } from "@/composables/lang.hook";
+import { useSetupStep } from "@/composables/setup-step.hook";
+import { upsertConfig } from "@/api/config.api";
+import type { TThemeMode, TLanguage } from "@/api/shared";
+import type { TAppearanceConfigUpsertDTO } from "@server/dtos/config.dto";
+
+const { t, locale } = useLang();
+const { currentHue, colorMode } = useTheme();
+
+const { isSubmitting, runStep } = useSetupStep();
+
+const handleNext = () => {
+  runStep(async () => {
+    const configValue: TAppearanceConfigUpsertDTO["configValue"] = {
+      theme: colorMode.value as TThemeMode,
+      hue: currentHue.value,
+      language: locale.value as TLanguage,
+    };
+
+    return upsertConfig({
+      configKey: "appearance",
+      configValue,
+      description: "外观设置（主题颜色、色相、语言）",
+    });
+  });
+};
+</script>
+
+<template>
+  <StepLayout
+    :title="t('views.setup.steps.step1.title')"
+    :description="t('views.setup.steps.step1.description')"
+    :showPrev="false"
+    :loading="isSubmitting"
+    @next="handleNext"
+  >
+    <!-- 1. 语言选择 -->
+    <div class="flex flex-col gap-3 text-fg-subtle onload-animation">
+      <label class="text-sm font-bold uppercase tracking-wider">
+        {{ t("views.setup.steps.step1.settings.language") }}
+      </label>
+      <LanguageSelector />
+    </div>
+
+    <!-- 2. 主题模式 (明/暗) -->
+    <div class="flex flex-col gap-3 onload-animation anim-delay-50">
+      <label class="text-sm font-bold text-fg-subtle uppercase tracking-wider">
+        {{ t("views.setup.steps.step1.settings.theme") }}
+      </label>
+      <ThemeModeSelector />
+    </div>
+
+    <!-- 3. 主题色 (滑动条) -->
+    <div class="onload-animation anim-delay-100">
+      <ThemeColorPicker>
+        <template #label>
+          <label
+            class="text-sm font-bold text-fg-subtle uppercase tracking-wider"
+          >
+            {{ t("views.setup.steps.step1.settings.color") }}
+          </label>
+        </template>
+      </ThemeColorPicker>
+    </div>
+  </StepLayout>
+</template>
