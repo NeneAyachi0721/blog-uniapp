@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { onLoad, onPullDownRefresh, onReachBottom, onShow } from "@dcloudio/uni-app";
+import {
+  onLoad,
+  onPullDownRefresh,
+  onReachBottom,
+  onShow,
+} from "@dcloudio/uni-app";
 import PostCard from "@/components/PostCard.vue";
 import StateBlock from "@/components/StateBlock.vue";
 import { APP_FALLBACK } from "@/config";
@@ -160,7 +165,11 @@ onReachBottom(() => {
 
     <view class="chip-bar glass-panel">
       <view class="home-chip active">
-        <image src="/static/tab/home-active.png" mode="aspectFit" class="chip-icon" />
+        <image
+          src="/static/tab/home-active.png"
+          mode="aspectFit"
+          class="chip-icon"
+        />
         <text>全部</text>
       </view>
       <view v-for="item in categoryChips" :key="item.name" class="home-chip">
@@ -182,7 +191,7 @@ onReachBottom(() => {
           <text class="section-kicker">Latest Writing</text>
           <text class="section-title">最近更新</text>
         </view>
-        <text class="section-subtitle">清透阅读 · 慢慢展开</text>
+        <text class="section-subtitle">内容展示</text>
       </view>
 
       <view class="post-list">
@@ -248,9 +257,22 @@ onReachBottom(() => {
   top: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0) 300rpx),
-    radial-gradient(circle at 86% 16%, rgba(226, 243, 255, 0.68), rgba(226, 243, 255, 0) 320rpx),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(38, 56, 77, 0.16) 62%, rgba(38, 56, 77, 0.36));
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(255, 255, 255, 0.82),
+      rgba(255, 255, 255, 0) 300rpx
+    ),
+    radial-gradient(
+      circle at 86% 16%,
+      rgba(226, 243, 255, 0.68),
+      rgba(226, 243, 255, 0) 320rpx
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.42),
+      rgba(38, 56, 77, 0.16) 62%,
+      rgba(38, 56, 77, 0.36)
+    );
 }
 
 .hero-vignette {
@@ -277,7 +299,7 @@ onReachBottom(() => {
 }
 
 .hero-eyebrow {
-  color: #5BA7F0;
+  color: #5ba7f0;
   font-size: 20rpx;
   font-weight: 780;
   letter-spacing: 2rpx;
@@ -285,7 +307,7 @@ onReachBottom(() => {
 
 .hero-site {
   max-width: 360rpx;
-  color: #26384D;
+  color: #26384d;
   font-size: 26rpx;
   font-weight: 760;
   overflow: hidden;
@@ -346,7 +368,7 @@ onReachBottom(() => {
 }
 
 .bento-value {
-  color: #26384D;
+  color: #26384d;
   font-size: 34rpx;
   line-height: 1;
   font-weight: 820;
@@ -354,7 +376,7 @@ onReachBottom(() => {
 }
 
 .bento-label {
-  color: #7E93A8;
+  color: #7e93a8;
   font-size: 20rpx;
   font-weight: 650;
 }
@@ -381,13 +403,13 @@ onReachBottom(() => {
   align-items: center;
   gap: 9rpx;
   flex-shrink: 0;
-  color: #70879E;
+  color: #70879e;
   font-size: 24rpx;
   font-weight: 680;
 }
 
 .home-chip.active {
-  color: #4F9DE3;
+  color: #4f9de3;
   background: rgba(224, 242, 255, 0.86);
 }
 
@@ -397,7 +419,7 @@ onReachBottom(() => {
 }
 
 .chip-count {
-  color: #5BA7F0;
+  color: #5ba7f0;
   font-size: 21rpx;
   font-weight: 650;
 }
@@ -425,21 +447,21 @@ onReachBottom(() => {
 }
 
 .section-kicker {
-  color: #5BA7F0;
+  color: #5ba7f0;
   font-size: 20rpx;
   font-weight: 780;
   letter-spacing: 1.8rpx;
 }
 
 .section-title {
-  color: #26384D;
+  color: #26384d;
   font-size: 37rpx;
   font-weight: 800;
   letter-spacing: -0.6rpx;
 }
 
 .section-subtitle {
-  color: #8FA5B8;
+  color: #8fa5b8;
   font-size: 22rpx;
   font-weight: 540;
 }
@@ -455,7 +477,7 @@ onReachBottom(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8AA0B3;
+  color: #8aa0b3;
   font-size: 24rpx;
 }
 </style>
