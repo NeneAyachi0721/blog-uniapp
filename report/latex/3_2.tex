@@ -1,0 +1,51 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage[edges]{forest}
+
+\begin{document}
+
+\begin{forest}
+    for tree={
+        draw,
+        align=center,
+        grow=south,
+        anchor=north,
+        parent anchor=south,
+        child anchor=north,
+        fit=band,
+        forked edge,
+    },
+    [博客小程序系统
+        [微信小程序前台
+            [首\\页\\展\\示]
+            [文\\章\\阅\\读]
+            [归\\档\\浏\\览]
+            [友\\链\\展\\示]
+        ]
+        [后台管理端
+            [登\\录\\认\\证]
+            [文\\章\\维\\护]
+            [友\\链\\管\\理]
+            [站\\点\\配\\置]
+            [邮\\件\\日\\志]
+        ]
+        [后端接口服务
+            [用\\户\\鉴\\权]
+            [文\\章\\处\\理]
+            [友\\链\\处\\理]
+            [配\\置\\读\\写]
+            [图\\片\\上\\传]
+            [邮\\件\\处\\理]
+        ]
+        [数据存储模块
+            [用\\户\\数\\据]
+            [文\\章\\数\\据]
+            [友\\链\\数\\据]
+            [配\\置\\数\\据]
+            [邮\\件\\日\\志]
+            [验\\证\\码\\数\\据]
+        ]
+    ]
+\end{forest}
+
+\end{document}

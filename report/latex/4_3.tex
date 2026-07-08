@@ -1,0 +1,82 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    \node [terminal] (start) {开始};
+    \node [process] (open) [below=of start] {进入归档页面};
+    \node [io] (request) [below=of open] {请求公开文章归档数据};
+    \node [decision] (success) [below=of request] {请求是否成功};
+    \node [decision] (empty) [below=of success] {归档数据是否为空};
+    \node [process] (group) [below=of empty] {按发布时间分组};
+    \node [process] (render) [below=of group] {渲染归档时间线};
+    \node [process] (click) [below=of render] {点击归档文章};
+    \node [process] (detail) [below=of click] {跳转文章详情页};
+    \node [terminal] (stop) [below=of detail] {结束};
+
+    \node [process] (error) [right=2.8cm of success] {显示错误提示};
+    \node [process] (emptyview) [left=2.8cm of empty] {显示暂无归档};
+
+    \draw [arrow] (start) -- (open);
+    \draw [arrow] (open) -- (request);
+    \draw [arrow] (request) -- (success);
+    \draw [arrow] (success) -- node [left] {是} (empty);
+    \draw [arrow] (success) -- node [above] {否} (error);
+    \draw [arrow] (error) |- (stop);
+
+    \draw [arrow] (empty) -- node [left] {否} (group);
+    \draw [arrow] (empty) -- node [above] {是} (emptyview);
+    \draw [arrow] (emptyview) |- (stop);
+
+    \draw [arrow] (group) -- (render);
+    \draw [arrow] (render) -- (click);
+    \draw [arrow] (click) -- (detail);
+    \draw [arrow] (detail) -- (stop);
+
+\end{tikzpicture}
+\end{document}

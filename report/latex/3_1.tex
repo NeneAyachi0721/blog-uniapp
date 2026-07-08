@@ -1,0 +1,206 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+
+\usetikzlibrary{
+    arrows.meta,
+    positioning,
+    calc,
+    fit,
+    backgrounds,
+    shapes.geometric
+}
+
+\tikzset{
+    actor/.style = {
+        draw,
+        rectangle,
+        rounded corners=6pt,
+        align=center,
+        minimum width=2.7cm,
+        minimum height=1.0cm,
+        font=\small\bfseries
+    },
+    panel/.style = {
+        draw,
+        rectangle,
+        rounded corners=6pt,
+        align=left,
+        inner sep=8pt,
+        font=\small,
+        text width=7.1cm
+    },
+    service/.style = {
+        draw,
+        rectangle,
+        rounded corners=6pt,
+        align=left,
+        inner sep=8pt,
+        font=\small,
+        text width=7.1cm
+    },
+    db/.style = {
+        draw,
+        cylinder,
+        shape border rotate=90,
+        aspect=0.25,
+        align=left,
+        minimum width=3.9cm,
+        minimum height=6.4cm,
+        font=\small
+    },
+    resource/.style = {
+        draw,
+        rectangle,
+        rounded corners=5pt,
+        align=center,
+        minimum width=3.5cm,
+        minimum height=0.95cm,
+        font=\small
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth[length=3mm,width=2mm]}
+    }
+}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    node distance=1.4cm and 2.4cm
+]
+
+%================================================
+% 1. 前端应用层：先上下排好两个前端模块
+%    admin 位于 frontend 下方，边到边距离为 1.2cm
+%================================================
+
+\node[panel] (frontend) {
+\textbf{微信小程序前台（frontend）}\\[5pt]
+1. 首页：展示站点信息、置顶文章、最新文章\\
+2. 归档页：按时间浏览所有公开文章\\
+3. 友链页：展示项目技术栈相关官方链接\\
+4. 文章详情页：展示标题、封面、标签、正文等
+};
+
+\node[panel, below=1.2cm of frontend] (admin) {
+\textbf{后台管理端（admin）}\\[5pt]
+1. 登录认证\\
+2. 文章管理\\
+3. 友链管理\\
+4. 系统配置\\
+5. 邮件日志管理
+};
+
+%================================================
+% 2. 不可见辅助框 frontgroup
+%    这个框包住 frontend 和 admin
+%    后面的 backend 就相对这个整体定位
+%================================================
+
+\node[
+    fit=(frontend)(admin),
+    inner sep=0pt,
+    outer sep=0pt
+] (frontgroup) {};
+
+%================================================
+% 3. 用户层
+%    用户距离对应前端模块左边界 2.4cm
+%================================================
+
+\node[actor, left=2.4cm of frontend] (visitor) {普通用户};
+\node[actor, left=2.4cm of admin] (adminuser) {管理员};
+
+%================================================
+% 4. 业务服务层
+%    backend 距离整个 frontgroup 的右边界 3.2cm
+%================================================
+
+\node[service, right=3.2cm of frontgroup] (backend) {
+\textbf{后端服务（backend）}\\[5pt]
+1. Auth 路由：登录、退出、找回密码\\
+2. Post 路由：文章增删改查、公开文章接口\\
+3. Friend 路由：友链申请、审核、展示\\
+4. Config 路由：站点配置读取与保存\\
+5. Upload 路由：图片上传与资源管理\\
+6. Email 路由：SMTP 测试、邮件日志查询
+};
+
+%================================================
+% 5. 数据与资源层
+%    database 距离 backend 右边界 3.2cm
+%================================================
+
+\node[db, right=3.2cm of backend] (database) {
+\textbf{SQLite 数据库}\\[8pt]
+\texttt{user}\\[2pt]
+\texttt{post}\\[2pt]
+\texttt{friend\_link}\\[2pt]
+\texttt{config}\\[2pt]
+\texttt{email\_log}\\[2pt]
+\texttt{email\_verification}
+};
+
+\node[resource, above=1.4cm of database] (upload) {
+上传资源目录
+};
+
+\node[resource, below=1.4cm of database] (mail) {
+邮件服务 / 邮件日志
+};
+
+%================================================
+% 6. 连线
+%================================================
+
+\draw[arrow] (visitor.east) -- (frontend.west);
+\draw[arrow] (adminuser.east) -- (admin.west);
+
+\draw[arrow] (frontend.east) -- (backend.west);
+\draw[arrow] (admin.east) -- (backend.west);
+
+\draw[arrow] (backend.east) -- (database.west);
+
+\draw[arrow] (backend.east) -- ++(1.2cm,0) |- (upload.west);
+\draw[arrow] (backend.east) -- ++(1.2cm,0) |- (mail.west);
+
+%================================================
+% 7. 分层虚线框
+%================================================
+
+\begin{pgfonlayer}{background}
+
+\node[
+    draw,
+    dashed,
+    rounded corners=8pt,
+    inner sep=12pt,
+    fit=(frontend)(admin),
+    label={[font=\bfseries]above:前端应用层}
+] {};
+
+\node[
+    draw,
+    dashed,
+    rounded corners=8pt,
+    inner sep=12pt,
+    fit=(backend),
+    label={[font=\bfseries]above:业务服务层}
+] {};
+
+\node[
+    draw,
+    dashed,
+    rounded corners=8pt,
+    inner sep=12pt,
+    fit=(database)(upload)(mail),
+    label={[font=\bfseries]above:数据与资源层}
+] {};
+
+\end{pgfonlayer}
+
+\end{tikzpicture}
+
+\end{document}

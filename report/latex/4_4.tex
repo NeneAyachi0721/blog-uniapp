@@ -1,0 +1,81 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    \node [terminal] (start) {开始};
+    \node [process] (open) [below=of start] {进入后台登录页};
+    \node [io] (input) [below=of open] {输入邮箱和密码};
+    \node [decision] (valid) [below=of input] {表单是否有效};
+    \node [io] (request) [below=of valid] {提交登录请求};
+    \node [decision] (success) [below=of request] {认证是否通过};
+    \node [process] (save) [below=of success] {保存登录状态};
+    \node [process] (home) [below=of save] {进入后台首页};
+    \node [terminal] (stop) [below=of home] {结束};
+
+    \node [process] (formError) [right=2.8cm of valid] {提示输入错误};
+    \node [process] (loginError) [left=2.8cm of success] {提示登录失败};
+
+    \draw [arrow] (start) -- (open);
+    \draw [arrow] (open) -- (input);
+    \draw [arrow] (input) -- (valid);
+
+    \draw [arrow] (valid) -- node [left] {是} (request);
+    \draw [arrow] (valid) -- node [above] {否} (formError);
+    \draw [arrow] (formError) |- (input);
+
+    \draw [arrow] (request) -- (success);
+    \draw [arrow] (success) -- node [left] {是} (save);
+    \draw [arrow] (success) -- node [above] {否} (loginError);
+    \draw [arrow] (loginError) |- (input);
+
+    \draw [arrow] (save) -- (home);
+    \draw [arrow] (home) -- (stop);
+
+\end{tikzpicture}
+\end{document}

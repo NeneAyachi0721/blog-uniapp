@@ -1,0 +1,90 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    \node [terminal] (start) {开始};
+    \node [process] (list) [below=of start] {进入文章管理页面};
+    \node [io] (load) [below=of list] {加载文章列表};
+    \node [decision] (action) [below=of load] {选择操作};
+    \node [process] (edit) [below=of action] {创建或编辑文章};
+    \node [io] (input) [below=of edit] {填写标题、摘要、正文、标签和封面};
+    \node [decision] (valid) [below=of input] {数据是否有效};
+    \node [io] (save) [below=of valid] {提交文章保存接口};
+    \node [decision] (success) [below=of save] {保存是否成功};
+    \node [process] (finish) [below=of success] {提示保存成功并更新列表};
+    \node [terminal] (stop) [below=of finish] {结束};
+
+    \node [process] (delete) [right=2.8cm of action] {删除或归档文章};
+    \node [process] (validError) [right=2.8cm of valid] {提示表单错误};
+    \node [process] (saveError) [left=2.8cm of success] {提示保存失败};
+
+    \draw [arrow] (start) -- (list);
+    \draw [arrow] (list) -- (load);
+    \draw [arrow] (load) -- (action);
+
+    \draw [arrow] (action) -- node [left] {新增/编辑} (edit);
+    \draw [arrow] (action) -- node [above] {删除/归档} (delete);
+    \draw [arrow] (delete) |- (load);
+
+    \draw [arrow] (edit) -- (input);
+    \draw [arrow] (input) -- (valid);
+
+    \draw [arrow] (valid) -- node [left] {是} (save);
+    \draw [arrow] (valid) -- node [above] {否} (validError);
+    \draw [arrow] (validError) |- (input);
+
+    \draw [arrow] (save) -- (success);
+    \draw [arrow] (success) -- node [left] {是} (finish);
+    \draw [arrow] (success) -- node [above] {否} (saveError);
+    \draw [arrow] (saveError) |- (input);
+
+    \draw [arrow] (finish) -- (stop);
+
+\end{tikzpicture}
+\end{document}

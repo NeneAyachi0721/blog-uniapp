@@ -1,0 +1,171 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{er,calc}
+
+\tikzset{
+    entity/.append style = {
+        draw,
+        thick,
+        minimum width=3.0cm,
+        minimum height=1.1cm,
+        font=\small\bfseries
+    },
+    relationship/.append style = {
+        draw,
+        thick,
+        aspect=2,
+        font=\small\bfseries
+    },
+    attribute/.append style = {
+        draw,
+        thick,
+        minimum width=2.7cm,
+        minimum height=0.9cm,
+        font=\scriptsize
+    },
+    link/.style = {
+        thick
+    }
+}
+
+% #1 实体节点名
+% #2 属性节点前缀
+% #3 属性半径
+% #4 起始角度
+% #5 属性列表
+\newcommand{\PlaceAttrs}[5]{%
+    \def\AttrCount{0}%
+    \foreach \txt [count=\k] in {#5} {%
+        \xdef\AttrCount{\k}%
+    }%
+    \pgfmathsetmacro{\AngleStep}{360/\AttrCount}%
+    \foreach \txt [count=\k from 1] in {#5} {%
+        \pgfmathsetmacro{\AngleNow}{#4+(\k-1)*\AngleStep}%
+        \pgfmathsetmacro{\OppAngle}{mod(\AngleNow+180,360)}%
+        \node[attribute] (#2\k) at ($(#1)+(\AngleNow:#3)$) {\txt};
+        \draw[link] (#1.\AngleNow) -- (#2\k.\OppAngle);
+    }%
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+%==================== 参数区 ====================
+% 三组实体统一使用相同的左右水平距离
+\def\LeftX{-7.2}
+\def\RightX{7.2}
+
+% 三行实体上下距离
+\def\TopY{13.2}
+\def\MidY{0}
+\def\BotY{-13.2}
+
+% 默认属性到实体的距离
+\def\AttrRadius{5.7cm}
+
+% 单独控制部分实体的属性距离
+\def\PostAttrRadius{6.2cm}
+\def\EmailVerificationAttrRadius{4.8cm}
+\def\ConfigAttrRadius{4.8cm}
+
+%==================== 第一行：USER 与 EMAIL_VERIFICATION ====================
+\node[entity] (user) at (\LeftX,\TopY) {USER};
+\node[relationship] (verifyRel) at (0,\TopY) {生成验证码};
+\node[entity] (emailv) at (\RightX,\TopY) {EMAIL\_VERIFICATION};
+
+\draw[link] (user) -- node[above,font=\small] {1} (verifyRel);
+\draw[link] (verifyRel) -- node[above,font=\small] {N} (emailv);
+
+\PlaceAttrs{user}{u}{\AttrRadius}{115}{
+uuid (PK),
+username,
+email,
+password\_hash,
+role,
+status,
+created\_at,
+updated\_at,
+last\_login\_at,
+last\_login\_ip,
+email\_verified
+}
+
+\PlaceAttrs{emailv}{ev}{\EmailVerificationAttrRadius}{105}{
+uuid (PK),
+user\_uuid (FK),
+type,
+code,
+expires\_at,
+used\_at,
+ip,
+created\_at
+}
+
+%==================== 第二行：POST 与 FRIEND_LINK ====================
+\node[entity] (post) at (\LeftX,\MidY) {POST};
+\node[entity] (friend) at (\RightX,\MidY) {FRIEND\_LINK};
+
+\PlaceAttrs{post}{p}{\PostAttrRadius}{96}{
+uuid (PK),
+title,
+content,
+content\_text,
+cover\_image,
+status,
+tags,
+slug,
+excerpt,
+view\_count,
+pinned\_at,
+published\_at,
+deleted\_at,
+created\_at,
+updated\_at
+}
+
+\PlaceAttrs{friend}{f}{\AttrRadius}{100}{
+uuid (PK),
+name,
+url,
+avatar\_url,
+description,
+tags,
+status,
+applicant\_email,
+reject\_reason,
+joined\_at,
+created\_at,
+updated\_at
+}
+
+%==================== 第三行：CONFIG 与 EMAIL_LOG ====================
+\node[entity] (config) at (\LeftX,\BotY) {CONFIG};
+\node[entity] (elog) at (\RightX,\BotY) {EMAIL\_LOG};
+
+\PlaceAttrs{config}{c}{\ConfigAttrRadius}{110}{
+uuid (PK),
+config\_key,
+config\_value,
+description,
+is\_public,
+created\_at,
+updated\_at
+}
+
+\PlaceAttrs{elog}{e}{\AttrRadius}{100}{
+uuid (PK),
+type,
+from\_name,
+from\_email,
+to,
+subject,
+status,
+error\_message,
+params,
+is\_read,
+created\_at
+}
+
+\end{tikzpicture}
+\end{document}

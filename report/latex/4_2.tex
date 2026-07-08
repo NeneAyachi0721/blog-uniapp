@@ -1,0 +1,82 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    \node [terminal] (start) {开始};
+    \node [process] (open) [below=of start] {进入文章详情页};
+    \node [io] (param) [below=of open] {读取文章 slug 参数};
+    \node [decision] (hasSlug) [below=of param] {slug 是否存在};
+    \node [io] (request) [below=of hasSlug] {请求文章详情接口};
+    \node [decision] (success) [below=of request] {请求是否成功};
+    \node [process] (convert) [below=of success] {转换富文本内容};
+    \node [process] (render) [below=of convert] {渲染标题、封面、标签和正文};
+    \node [process] (back) [below=of render] {返回来源页面};
+    \node [terminal] (stop) [below=of back] {结束};
+
+    \node [process] (paramError) [right=2.8cm of hasSlug] {显示参数错误};
+    \node [process] (loadError) [left=2.8cm of success] {显示加载失败};
+
+    \draw [arrow] (start) -- (open);
+    \draw [arrow] (open) -- (param);
+    \draw [arrow] (param) -- (hasSlug);
+    \draw [arrow] (hasSlug) -- node [left] {是} (request);
+    \draw [arrow] (hasSlug) -- node [above] {否} (paramError);
+    \draw [arrow] (paramError) |- (stop);
+
+    \draw [arrow] (request) -- (success);
+    \draw [arrow] (success) -- node [left] {是} (convert);
+    \draw [arrow] (success) -- node [above] {否} (loadError);
+    \draw [arrow] (loadError) |- (stop);
+
+    \draw [arrow] (convert) -- (render);
+    \draw [arrow] (render) -- (back);
+    \draw [arrow] (back) -- (stop);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,106 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning,
+    calc
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+    line/.style = {
+        thick,
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    % 统一控制竖向边到边距离
+    \def\vGap{0.8cm}
+
+    \node [terminal] (start) {开始};
+    \node [decision] (role) [below=of start] {用户类型};
+
+    \draw [arrow] (start) -- (role);
+
+    % 用户类型到隐形点：边到点距离为 0.8cm
+    \coordinate (rolePoint) at ($(role.south)+(0,-\vGap)$);
+    \draw [line] (role.south) -- (rolePoint);
+
+    % 左右分支点
+    \coordinate (leftBranch) at ($(rolePoint)+(-3.0cm,0)$);
+    \coordinate (rightBranch) at ($(rolePoint)+(3.0cm,0)$);
+
+    % 两个子节点：分支点到节点上边缘距离为 0.8cm
+    \node [io] (publicReq) [below=\vGap of leftBranch] {请求已通过友链};
+    \node [io] (adminReq) [below=\vGap of rightBranch] {请求友链列表};
+
+    % 隐形点先横着，再竖着连接两个子节点
+    \draw [arrow] (rolePoint) -| node [pos=0.25, above] {普通用户} (publicReq.north);
+    \draw [arrow] (rolePoint) -| node [pos=0.25, above] {管理员} (adminReq.north);
+
+    % 左侧流程
+    \node [process] (show) [below=of publicReq] {展示友链卡片};
+    \node [process] (jump) [below=of show] {跳转官方网站};
+
+    \draw [arrow] (publicReq) -- (show);
+    \draw [arrow] (show) -- (jump);
+
+    % 右侧流程
+    \node [process] (manage) [below=of adminReq] {编辑、审核或删除友链};
+    \node [io] (save) [below=of manage] {提交友链保存接口};
+
+    \draw [arrow] (adminReq) -- (manage);
+    \draw [arrow] (manage) -- (save);
+
+    % 底部隐形汇合点：节点下边缘到汇合点距离为 0.8cm
+    \coordinate (endPoint) at ($(jump.south)!0.5!(save.south)+(0,-\vGap)$);
+
+    % 两个分支先竖着，再横着连接隐形点，不带箭头
+    \draw [line] (jump.south) |- (endPoint);
+    \draw [line] (save.south) |- (endPoint);
+
+    % 隐形点到结束节点上边缘距离为 0.8cm
+    \node [terminal] (stop) [below=\vGap of endPoint] {结束};
+
+    \draw [arrow] (endPoint) -- (stop.north);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    \node [terminal] (start) {开始};
+    \node [process] (choose) [below=of start] {点击图片上传};
+    \node [io] (file) [below=of choose] {选择本地图片文件};
+    \node [decision] (valid) [below=of file] {文件是否有效};
+    \node [io] (upload) [below=of valid] {提交上传接口};
+    \node [decision] (success) [below=of upload] {上传是否成功};
+    \node [process] (path) [below=of success] {返回图片访问路径};
+    \node [process] (save) [below=of path] {写入文章或配置表单};
+    \node [terminal] (stop) [below=of save] {结束};
+
+    \node [process] (fileError) [right=2.8cm of valid] {提示文件格式或大小错误};
+    \node [process] (uploadError) [left=2.8cm of success] {提示上传失败};
+
+    \draw [arrow] (start) -- (choose);
+    \draw [arrow] (choose) -- (file);
+    \draw [arrow] (file) -- (valid);
+
+    \draw [arrow] (valid) -- node [left] {是} (upload);
+    \draw [arrow] (valid) -- node [above] {否} (fileError);
+    \draw [arrow] (fileError) |- (file);
+
+    \draw [arrow] (upload) -- (success);
+    \draw [arrow] (success) -- node [left] {是} (path);
+    \draw [arrow] (success) -- node [above] {否} (uploadError);
+    \draw [arrow] (uploadError) |- (file);
+
+    \draw [arrow] (path) -- (save);
+    \draw [arrow] (save) -- (stop);
+
+\end{tikzpicture}
+\end{document}

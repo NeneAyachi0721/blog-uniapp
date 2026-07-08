@@ -1,0 +1,83 @@
+\documentclass{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric,
+    arrows.meta,
+    positioning
+}
+
+\tikzset{
+    base/.style = {
+        draw,
+        align=center,
+        minimum width=3.2cm,
+        minimum height=1cm,
+    },
+    terminal/.style = {
+        base,
+        rectangle,
+        rounded corners=0.5cm,
+        minimum width=2cm,
+        minimum height=1cm,
+    },
+    io/.style = {
+        base,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        trapezium stretches=true,
+    },
+    process/.style = {
+        base,
+        rectangle,
+    },
+    decision/.style = {
+        base,
+        diamond,
+        aspect=2,
+        inner sep=1pt,
+    },
+    arrow/.style = {
+        ->,
+        thick,
+        >={Stealth},
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[node distance=1.4cm]
+
+    \node [terminal] (start) {开始};
+    \node [process] (open) [below=of start] {进入系统配置页面};
+    \node [io] (load) [below=of open] {读取当前配置数据};
+    \node [process] (fill) [below=of load] {填充配置表单};
+    \node [io] (edit) [below=of fill] {修改站点信息、个人信息和 SMTP 配置};
+    \node [decision] (valid) [below=of edit] {配置是否有效};
+    \node [io] (save) [below=of valid] {提交配置保存接口};
+    \node [decision] (success) [below=of save] {保存是否成功};
+    \node [process] (finish) [below=of success] {提示保存成功};
+    \node [terminal] (stop) [below=of finish] {结束};
+
+    \node [process] (validError) [right=2.8cm of valid] {提示配置错误};
+    \node [process] (saveError) [left=2.8cm of success] {提示保存失败};
+
+    \draw [arrow] (start) -- (open);
+    \draw [arrow] (open) -- (load);
+    \draw [arrow] (load) -- (fill);
+    \draw [arrow] (fill) -- (edit);
+
+    \draw [arrow] (edit) -- (valid);
+    \draw [arrow] (valid) -- node [left] {是} (save);
+    \draw [arrow] (valid) -- node [above] {否} (validError);
+    \draw [arrow] (validError) |- (edit);
+
+    \draw [arrow] (save) -- (success);
+    \draw [arrow] (success) -- node [left] {是} (finish);
+    \draw [arrow] (success) -- node [above] {否} (saveError);
+    \draw [arrow] (saveError) |- (edit);
+
+    \draw [arrow] (finish) -- (stop);
+
+\end{tikzpicture}
+\end{document}
